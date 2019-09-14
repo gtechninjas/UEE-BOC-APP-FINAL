@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@builderx/icons": "^0.1.10",
+    "@builderx/tab-view": "^0.1.6",
     "@builderx/utils": "^0.1.6",
     "@expo/samples": "~3.0.3",
     "@expo/vector-icons": "^10.0.3",

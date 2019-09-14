@@ -47,6 +47,11 @@ export default class DashboardScreen extends Component {
         <Text style={styles.text5}>LKR 50,000.00</Text>
         <Text style={styles.text6}>LKR 0.00</Text>
         <View style={styles.rect4} />
+        <View style={styles.materialButtonDark20} onPress = { () => navigate('MyAccount')}>
+          <TouchableOpacity style={[styles.root, this.props.style]}>
+          <Text style={styles.caption}>Accounts</Text>
+          </TouchableOpacity>
+        </View>
         <MaterialButtonDark20 style={styles.materialButtonDark20}  />
         {/* <MaterialButtonDark21 style={styles.materialButtonDark21} onPress = { () => navigate('ThirdPartyTransfer')}/> */}
         <View style={styles.materialButtonDark21}>

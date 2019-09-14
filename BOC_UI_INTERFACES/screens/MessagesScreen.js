@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StyleSheet, View, Image, Text,FlatList, Alert, ScrollView } from "react-native";
+import { StyleSheet, View, Image, Text,FlatList, ActivityIndicator, ScrollView } from "react-native";
 import { List, ListItem } from "react-native-elements";
 import Message from "../components/Message";
 import MaterialButtonMessage from "../symbols/MaterialButtonMessage";
@@ -17,7 +17,7 @@ export default class MessagesScreen extends Component {
 
     this.state = {
       loading: false,
-      data: [],
+      items: [],
       page: 1,
       seed: 1,
       error: null,
@@ -26,7 +26,12 @@ export default class MessagesScreen extends Component {
   }
 
   componentDidMount() {
-    this.makeRemoteRequest();
+    this._get('https://jsonplaceholder.typicode.com/posts')
+    .then(
+      data => {
+        this.setState({items: data})
+      }
+    );
   }
 
   makeRemoteRequest = () => {
@@ -48,12 +53,29 @@ export default class MessagesScreen extends Component {
       });
   };
    
+  _get = async(endpoint) => {
+    const res = await fetch(endpoint);
+    const data = await res.json();
+    return data;
+  }
 
   render() {
-    
+    if(this.state.items.length == 0){
+      return(
+        <View style={styles.loader}>
+          <ActivityIndicator size="large"/>
+        </View>
+      )
+    }
     return (
       <View style={styles.root}>
-        <Message  />
+        <FlatList 
+          style={styles.container}
+          data={this.state.items}
+          keyExtractor={(item, index) => index.toString()}
+          renderItem={({item})  => <Message item={item} />}
+        />
+        
         <View style={styles.rect} />
         <Image
           source={require("../assets/images/1200px-Bank_of_Ceylon.svg.png")}
@@ -81,6 +103,14 @@ const styles = StyleSheet.create({
   root: {
     flex: 1,
     backgroundColor: "rgba(255,255,255,1)"
+  },
+  loader:{
+    flex:1,
+    alignItems:'center',
+    justifyContent:'center'
+  },
+  container:{
+    marginTop:3
   },
   materialButtonMessage: {
     top: 550,

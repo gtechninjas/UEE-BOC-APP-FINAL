@@ -7,6 +7,7 @@ import MaterialUnderlineTextbox21 from "../symbols/MaterialUnderlineTextbox21";
 import MaterialUnderlineTextbox22 from "../symbols/MaterialUnderlineTextbox22";
 import MaterialButtonDark36 from "../symbols/MaterialButtonDark36";
 import MaterialButtonDark37 from "../symbols/MaterialButtonDark37";
+import { Dropdown } from 'react-native-material-dropdown';
 
 export default class OtherBankCreditCardScreen extends Component {
   render() {

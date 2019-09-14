@@ -7,8 +7,23 @@ import MaterialUnderlineTextbox14 from "../symbols/MaterialUnderlineTextbox14";
 import MaterialUnderlineTextbox15 from "../symbols/MaterialUnderlineTextbox15";
 import MaterialButtonDark30 from "../symbols/MaterialButtonDark30";
 import MaterialButtonDark31 from "../symbols/MaterialButtonDark31";
+import { Dropdown } from 'react-native-material-dropdown';
+import {
+  SCLAlert,
+  SCLAlertButton
+} from 'react-native-scl-alert';
 
 export default class ThirdPartyBOCAccountScreen extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      isDialogVisible: false,
+    }
+  }
+  showDialog(isShow){
+    this.setState({isDialogVisible: isShow});
+  }
+  
   render() {
     const {navigate} = this.props.navigation;
     return (

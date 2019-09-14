@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StyleSheet, View, Image, Text,TouchableOpacity, Alert , TextInput} from "react-native";
+import { StyleSheet, View, Image, Text, TouchableOpacity, Alert, TextInput } from "react-native";
 import { Dropdown } from 'react-native-material-dropdown';
 import { } from 'react-navigation';
 import {
@@ -10,26 +10,26 @@ import {
 export default class AddExpense extends Component {
   constructor(props) {
     super(props);
-  
-    this.state = { description: 'Expense Description'||'', expenseAmt:0||0 , expenseCategory:'', showSuccess: false, showAbort: false} 
-  }
-  
-  render() {
-    const {navigate} = this.props.navigation;
-    const showSuccessAlert = () =>{
-       this.setState({ showSuccess: true })
-     }
-    const closeSuccessAlert = () =>{
-      this.setState({ showSuccess: false })
-   }
 
-   const showAbortAlert = () =>{
-    this.setState({ showAbort: true })
+    this.state = { description: 'Expense Description' || '', expenseAmt: 0 || 0, expenseCategory: '', showSuccess: false, showAbort: false }
   }
- const closeAbortAlert = () =>{
-   this.setState({ showAbort: false })
-}
-    
+
+  render() {
+    const { navigate } = this.props.navigation;
+    const showSuccessAlert = () => {
+      this.setState({ showSuccess: true })
+    }
+    const closeSuccessAlert = () => {
+      this.setState({ showSuccess: false })
+    }
+
+    const showAbortAlert = () => {
+      this.setState({ showAbort: true })
+    }
+    const closeAbortAlert = () => {
+      this.setState({ showAbort: false })
+    }
+
     const expenseCategoryList = [{
       value: 'Food & Grocerries',
     }, {
@@ -39,80 +39,80 @@ export default class AddExpense extends Component {
     },
     {
       value: 'Debts Repayment',
-    },{
+    }, {
       value: 'Family Expenses',
-    },{
+    }, {
       value: 'Other Monthly Expenses',
     }];
     return (
       <View style={styles.root}>
-      <View style={styles.rect} />
-      <Image
-        source={require("../assets/images/1200px-Bank_of_Ceylon.svg.png")}
-        resizeMode={"contain"}
-        style={styles.image}
-      />
-      <View style={styles.rect3} />
-      <Text style={styles.text2}>ADD EXPENSE</Text>
+        <View style={styles.rect} />
+        <Image
+          source={require("../assets/images/1200px-Bank_of_Ceylon.svg.png")}
+          resizeMode={"contain"}
+          style={styles.image}
+        />
+        <View style={styles.rect3} />
+        <Text style={styles.text2}>ADD EXPENSE</Text>
 
-      <View style={styles.expenseCategoryListStyle}>
-        <Dropdown
-        label='Expense Category'
-        data={expenseCategoryList}
-        editable={true}
-      /></View>
-       <View style={[styles.expenseAmtRoot, this.props.style]}>
-        <TextInput
-          keyboardType='numeric'
-          placeholder={this.props.inputStyle || "Expense Amount"}
-          editable={true}
-          style={styles.expenseAmtInputStyle}
-          onChangeText={(expenseAmt) => this.setState({ expenseAmt })}
-          value={this.state.expenseAmt}
-        />
-      </View>
-      <View style={[styles.expenseDescRoot, this.props.style]}>
-        <TextInput
-          placeholder={this.props.expenseDescInputStyle || "Expense Description"}
-          editable={true}
-          style={styles.expenseDescInputStyle}
-          onChangeText={(description) => this.setState({ description })}
-          value={this.state.description}
-        />
-      </View>
-        <View style={styles.materialButtonViolet7} >
-        <TouchableOpacity style={[styles.addExpenseBtnRoot, this.props.style]} onPress = {showSuccessAlert}>
-        <Text style={styles.addExpenseBtnCaption}>ADD</Text>
-      </TouchableOpacity>
-      <SCLAlert
-          theme="success"
-          show={this.state.showSuccess}
-          title="Add Expense"
-          subtitle={this.state.description +' :Rs. '+this.state.expenseAmt}
-        >
-          <SCLAlertButton theme="success" onPress={closeSuccessAlert}>Done</SCLAlertButton>
-        </SCLAlert>
-       </View>
-        <View style={styles.materialButtonViolet8}>
-            <TouchableOpacity style={[styles.cancelroot,this.props.style]} onPress = { showAbortAlert}>
-            <Text style={styles.cancelcaption}>CANCEL</Text>
-            </TouchableOpacity>
-            <SCLAlert
-          theme="danger"
-          show={this.state.showAbort}
-          title="Abort"
-          subtitle='Adding expense aborted'
-        >
-          <SCLAlertButton theme="danger" onPress = { () => navigate('BudgetCalculator')}>Abort</SCLAlertButton>
-        </SCLAlert>
+        <View style={styles.expenseCategoryListStyle}>
+          <Dropdown
+            label='Expense Category'
+            data={expenseCategoryList}
+            editable={true}
+          /></View>
+        <View style={[styles.expenseAmtRoot, this.props.style]}>
+          <TextInput
+            keyboardType='numeric'
+            placeholder={this.props.inputStyle || "Expense Amount"}
+            editable={true}
+            style={styles.expenseAmtInputStyle}
+            onChangeText={(expenseAmt) => this.setState({ expenseAmt })}
+            value={this.state.expenseAmt}
+          />
         </View>
-       
+        <View style={[styles.expenseDescRoot, this.props.style]}>
+          <TextInput
+            placeholder={this.props.expenseDescInputStyle || "Expense Description"}
+            editable={true}
+            style={styles.expenseDescInputStyle}
+            onChangeText={(description) => this.setState({ description })}
+            value={this.state.description}
+          />
+        </View>
+        <View style={styles.materialButtonViolet7} >
+          <TouchableOpacity style={[styles.addExpenseBtnRoot, this.props.style]} onPress={showSuccessAlert}>
+            <Text style={styles.addExpenseBtnCaption}>ADD</Text>
+          </TouchableOpacity>
+          <SCLAlert
+            theme="success"
+            show={this.state.showSuccess}
+            title="Add Expense"
+            subtitle={this.state.description + ' :Rs. ' + this.state.expenseAmt}
+          >
+            <SCLAlertButton theme="success" onPress={closeSuccessAlert}>Done</SCLAlertButton>
+          </SCLAlert>
+        </View>
+        <View style={styles.materialButtonViolet8}>
+          <TouchableOpacity style={[styles.cancelroot, this.props.style]} onPress={showAbortAlert}>
+            <Text style={styles.cancelcaption}>CANCEL</Text>
+          </TouchableOpacity>
+          <SCLAlert
+            theme="danger"
+            show={this.state.showAbort}
+            title="Abort"
+            subtitle='Adding expense aborted'
+          >
+            <SCLAlertButton theme="danger" onPress={() => navigate('BudgetCalculator')}>Abort</SCLAlertButton>
+          </SCLAlert>
+        </View>
+
       </View>
     );
   }
 }
 AddExpense.navigationOptions = {
-  header : null,
+  header: null,
 };
 
 const styles = StyleSheet.create({

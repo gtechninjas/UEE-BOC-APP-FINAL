@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { StyleSheet, TouchableOpacity, Text } from "react-native";
 
-export default class MaterialButtonDark33 extends Component {
+export default class MaterialButtonDark39 extends Component {
   render() {
     return (
       <TouchableOpacity style={[styles.root, this.props.style]}>
-        <Text style={styles.caption}>Later</Text>
+        <Text style={styles.caption}>Periodically</Text>
       </TouchableOpacity>
     );
   }
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
   },
   caption: {
     color: "#fff",
-    fontSize: 18,
+    fontSize: 14,
     fontFamily: "roboto-regular",
     fontWeight: "200"
   }

@@ -7,7 +7,7 @@ export default class MaterialUnderlineTextbox15 extends Component {
       <View style={[styles.root, this.props.style]}>
         <TextInput
           placeholder={"Email"}
-          editable={false}
+          editable={true}
           style={styles.inputStyle}
         />
       </View>
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
   },
   inputStyle: {
     flex: 1,
-    color: "#000",
+    color: "#fff",
     alignSelf: "stretch",
     paddingTop: 16,
     paddingRight: 5,

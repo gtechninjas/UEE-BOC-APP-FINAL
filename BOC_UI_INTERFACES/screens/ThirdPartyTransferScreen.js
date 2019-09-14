@@ -3,6 +3,7 @@ import { StyleSheet, View, Image, TextInput, Text, TouchableOpacity } from "reac
 import MaterialButtonTransparentHamburger from "../symbols/MaterialButtonTransparentHamburger";
 import MaterialButtonDark26 from "../symbols/MaterialButtonDark26";
 import MaterialButtonDark27 from "../symbols/MaterialButtonDark27";
+import { Dropdown } from 'react-native-material-dropdown';
 
 export default class ThirdPartyTransferScreen extends Component {
   render() {

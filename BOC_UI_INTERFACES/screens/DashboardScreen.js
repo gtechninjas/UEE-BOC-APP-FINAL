@@ -61,7 +61,7 @@ export default class DashboardScreen extends Component {
         </View>
         {/* <MaterialButtonDark23 style={styles.materialButtonDark23} /> */}
         <View style={styles.materialButtonDark23}>
-            <TouchableOpacity style={[styles.aroot, this.props.style]} onPress = { () => navigate('ThirdPartyTransferMenu')}>
+            <TouchableOpacity style={[styles.aroot, this.props.style]} onPress = { () => navigate('TransferFinal')}>
             <Text style={styles.acaption}>Own Account Transfer</Text>
             </TouchableOpacity>
         </View>

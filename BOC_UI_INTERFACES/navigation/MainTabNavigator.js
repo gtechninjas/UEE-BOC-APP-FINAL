@@ -18,6 +18,7 @@ import OtherBankCreditCardScreen from '../screens/OtherBankCreditCardScreen';
 import BudgetCalculatorScreen from '../screens/BudgetCalculator';
 import AddexpenseScreen from '../screens/AddExpense';
 import PayBillsScreen from '../screens/PayBills';
+import TransferFinalScreen from '../screens/TransferFinalScreen';
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
@@ -271,6 +272,23 @@ OtherBankAccountStack.navigationOptions = {
 
 OtherBankAccountStack.path = '';
 
+const TransferFinalStack = createStackNavigator(
+  {
+    TransferFinal: TransferFinalScreen,
+  },
+  config
+);
+
+TransferFinalStack.navigationOptions = {
+  // tabBarLabel: 'Settings',
+  // tabBarIcon: ({ focused }) => (
+  //   <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
+  // ),
+  header : null,
+};
+
+TransferFinalStack.path = '';
+
 const OtherBankCreditCardStack = createStackNavigator(
   {
     OtherBankCreditCard: OtherBankCreditCardScreen,
@@ -303,7 +321,8 @@ const tabNavigator = createStackNavigator({
   OtherBankAccCreditMenuStack,
   BudgetCalculatorStack,
   AddExpenseStack,
-  PayBillsStack
+  PayBillsStack,
+  TransferFinalStack
 });
 
 tabNavigator.path = '';

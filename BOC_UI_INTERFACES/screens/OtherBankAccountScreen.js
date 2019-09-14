@@ -1,15 +1,49 @@
 import React, { Component } from "react";
-import { StyleSheet, View, Image, TextInput, Text, TouchableOpacity} from "react-native";
+import { StyleSheet, View, Image, TextInput, Text, TouchableOpacity } from "react-native";
 import MaterialButtonTransparentHamburger from "../symbols/MaterialButtonTransparentHamburger";
 import MaterialUnderlineTextbox16 from "../symbols/MaterialUnderlineTextbox16";
 import MaterialUnderlineTextbox17 from "../symbols/MaterialUnderlineTextbox17";
 import MaterialUnderlineTextbox18 from "../symbols/MaterialUnderlineTextbox18";
 import MaterialButtonDark34 from "../symbols/MaterialButtonDark34";
 import MaterialButtonDark35 from "../symbols/MaterialButtonDark35";
+import { Dropdown } from 'react-native-material-dropdown';
+import {
+  SCLAlert,
+  SCLAlertButton
+} from 'react-native-scl-alert';
 
 export default class OtherBankAccountScreen extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = { description: 'Expense Description' || '', expenseAmt: 0 || 0, expenseCategory: '', showSuccess: false, showAbort: false }
+  }
   render() {
-    const {navigate} = this.props.navigation;
+    const { navigate } = this.props.navigation;
+    const showSuccessAlert = () => {
+      this.setState({ showSuccess: true })
+    }
+    const closeSuccessAlert = () => {
+      this.setState({ showSuccess: false })
+    }
+
+    const showAbortAlert = () => {
+      this.setState({ showAbort: true })
+    }
+    const closeAbortAlert = () => {
+      this.setState({ showAbort: false })
+    }
+
+    const customerList = [{
+      value: 'BOC',
+    }, {
+      value: 'HNB',
+    }, {
+      value: 'CBC',
+    },
+    {
+      value: 'HNB',
+    }];
     return (
       <View style={styles.root}>
         <View style={styles.rect} />
@@ -37,8 +71,14 @@ export default class OtherBankAccountScreen extends Component {
         <MaterialUnderlineTextbox16 style={styles.materialUnderlineTextbox16} />
         <MaterialUnderlineTextbox17 style={styles.materialUnderlineTextbox17} />
         <MaterialUnderlineTextbox18 style={styles.materialUnderlineTextbox18} />
-        <MaterialButtonDark34 style={styles.materialButtonDark34} />
-        <MaterialButtonDark35 style={styles.materialButtonDark35} />
+        <View style={styles.materialButtonDark34}>
+          <Dropdown
+            label='Select Bank'
+            data={customerList}
+          />
+        </View>
+        <MaterialButtonDark35 style={styles.materialButtonDark35} >
+        </MaterialButtonDark35>
       </View>
     );
   }
@@ -46,7 +86,7 @@ export default class OtherBankAccountScreen extends Component {
 
 
 OtherBankAccountScreen.navigationOptions = {
-  header : null,
+  header: null,
 };
 
 const styles = StyleSheet.create({
@@ -195,7 +235,8 @@ const styles = StyleSheet.create({
     left: 31.9,
     width: 300,
     height: 64.8,
-    position: "absolute"
+    position: "absolute",
+    color: "#fff"
   },
   materialButtonDark35: {
     top: 520,

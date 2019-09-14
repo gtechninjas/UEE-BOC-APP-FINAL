@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { StyleSheet, View, TextInput } from "react-native";
 
-export default class MaterialUnderlineTextbox13 extends Component {
+export default class MaterialUnderlineTextbox23 extends Component {
   render() {
     return (
       <View style={[styles.root, this.props.style]}>
         <TextInput
-          placeholder={"Beneficiary Nick Name"}
+          placeholder={"Amount"}
           editable={true}
           style={styles.inputStyle}
         />

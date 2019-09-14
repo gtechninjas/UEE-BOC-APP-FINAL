@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { StyleSheet, View, Image, Text,FlatList, Alert, ScrollView } from "react-native";
 import { List, ListItem } from "react-native-elements";
 import Message from "../components/Message";
-import MaterialButtonMessage from "../components/MaterialButtonMessage";
+import MaterialButtonMessage from "../symbols/MaterialButtonMessage";
 import { Dropdown } from 'react-native-material-dropdown';
 import { } from 'react-navigation';
 import {
@@ -11,7 +11,7 @@ import {
 } from 'react-native-scl-alert';
 
 
-export default class MesagesPage extends Component {
+export default class MessagesScreen extends Component {
   constructor(props) {
     super(props);
 
@@ -73,7 +73,7 @@ export default class MesagesPage extends Component {
   }
 }
 
-MesagesPage.navigationOptions = {
+MessagesScreen.navigationOptions = {
   header : null,
 };
 

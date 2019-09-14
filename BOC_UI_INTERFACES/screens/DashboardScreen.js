@@ -76,11 +76,15 @@ export default class DashboardScreen extends Component {
           style={styles.image3}
           onPress = { () => navigate('Reminder')}
         />
+        <View style={styles.messageButton}>
+        <TouchableOpacity style={[styles.aroot, this.props.style]} onPress={ () => navigate('Message') }>
         <Image
           source={require("../assets/images/51-512.png")}
           resizeMode={"contain"}
           style={styles.image4}
         />
+        </TouchableOpacity>
+        </View>
       </View>
     );
   }
@@ -93,6 +97,14 @@ DashboardScreen.navigationOptions = {
 const styles = StyleSheet.create({
   root: {
     flex: 1
+  },
+  messageButton: {
+    top: 340,
+    left: 222.41,
+    width: 168.39,
+    height: 59.86,
+    backgroundColor: "rgba(250,164,51,1)",
+    position: "absolute"
   },
   aroot: {
     flex: 1,

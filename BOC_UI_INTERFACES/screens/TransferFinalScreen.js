@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StyleSheet, View, Image, TextInput, Text } from "react-native";
+import { StyleSheet, View, Image, TextInput, Text, TouchableOpacity } from "react-native";
 import MaterialButtonTransparentHamburger from "../symbols/MaterialButtonTransparentHamburger";
 import MaterialUnderlineTextbox23 from "../symbols/MaterialUnderlineTextbox23";
 import MaterialUnderlineTextbox24 from "../symbols/MaterialUnderlineTextbox24";
@@ -11,9 +11,32 @@ import MaterialUnderlineTextbox25 from "../symbols/MaterialUnderlineTextbox25";
 import MaterialUnderlineTextbox26 from "../symbols/MaterialUnderlineTextbox26";
 import { Dropdown } from 'react-native-material-dropdown';
 import axios from 'axios';
+import {
+  SCLAlert,
+  SCLAlertButton
+} from 'react-native-scl-alert';
 
 export default class TransferFinalScreen extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {showSuccess: false, showAbort: false }
+  }
   render() {
+    const showSuccessAlert = () => {
+      this.setState({ showSuccess: true })
+    }
+    const closeSuccessAlert = () => {
+      this.setState({ showSuccess: false })
+    }
+
+    const showAbortAlert = () => {
+      this.setState({ showAbort: true })
+    }
+    const closeAbortAlert = () => {
+      this.setState({ showAbort: false })
+    }
     const payList = [{
       value: 'Suren 213123123',
     }, {
@@ -63,9 +86,21 @@ export default class TransferFinalScreen extends Component {
         <MaterialUnderlineTextbox23 style={styles.materialUnderlineTextbox23} />
         <MaterialUnderlineTextbox24 style={styles.materialUnderlineTextbox24} />
         <MaterialButtonDark33 style={styles.materialButtonDark33} />
-        <MaterialButtonDark38 style={styles.materialButtonDark38} />
         <MaterialButtonDark39 style={styles.materialButtonDark39} />
         <MaterialButtonDark40 style={styles.materialButtonDark40} />
+        <View style={styles.materialButtonDark38} >
+          <TouchableOpacity style={[styles.transferFinalBtnRoot, this.props.style]} onPress={showSuccessAlert}>
+            <Text style={styles.transferFinalBtnCaption}>PayOn</Text>
+          </TouchableOpacity>
+          <SCLAlert
+            theme="success"
+            show={this.state.showSuccess}
+            title="Success"
+            subtitle="Successfully transfered"
+          >
+            <SCLAlertButton theme="success" onPress={closeSuccessAlert}>Done</SCLAlertButton>
+          </SCLAlert>
+        </View>
         {/* <MaterialUnderlineTextbox25 style={styles.materialUnderlineTextbox25} /> */}
         <View style={styles.materialUnderlineTextbox25}>
           <Dropdown
@@ -91,6 +126,31 @@ TransferFinalScreen.navigationOptions = {
 };
 
 const styles = StyleSheet.create({
+  transferFinalBtnRoot: {
+    flex: 1,
+    backgroundColor: "#212121",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    paddingRight: 16,
+    paddingLeft: 16,
+    elevation: 2,
+    minWidth: 88,
+    borderRadius: 2,
+    shadowOffset: {
+      height: 1,
+      width: 0
+    },
+    shadowColor: "#000",
+    shadowOpacity: 0.35,
+    shadowRadius: 5
+  },
+  transferFinalBtnCaption: {
+    color: "#fff",
+    fontSize: 14,
+    fontFamily: "roboto-regular",
+    fontWeight: "200"
+  },
   root: {
     flex: 1,
     backgroundColor: "white"

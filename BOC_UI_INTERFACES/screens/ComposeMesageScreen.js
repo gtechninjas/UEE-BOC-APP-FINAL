@@ -37,6 +37,10 @@ export default class ComposeMesageScreen extends Component {
   }
 }
 
+ComposeMesageScreen.navigationOptions = {
+  header : null,
+};
+
 const styles = StyleSheet.create({
   root: {
     flex: 1,

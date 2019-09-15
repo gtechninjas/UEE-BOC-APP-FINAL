@@ -57,7 +57,7 @@ export default class PayBills extends Component {
       />
       </View>
         <View style={styles.materialButtonViolet7}>
-        <TouchableOpacity style={[styles.payBillsRoot, this.props.style]} onPress = {showPayeeDetails}>
+        <TouchableOpacity style={[styles.payBillsRoot, this.props.style]} onPress = { () => navigate('AddPayBills')}>
         <Text style={styles.payBillsCaption}>NEXT</Text>
         </TouchableOpacity>
         </View>

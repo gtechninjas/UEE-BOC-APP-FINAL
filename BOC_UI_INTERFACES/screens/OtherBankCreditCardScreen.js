@@ -8,10 +8,33 @@ import MaterialUnderlineTextbox22 from "../symbols/MaterialUnderlineTextbox22";
 import MaterialButtonDark36 from "../symbols/MaterialButtonDark36";
 import MaterialButtonDark37 from "../symbols/MaterialButtonDark37";
 import { Dropdown } from 'react-native-material-dropdown';
+import {
+  SCLAlert,
+  SCLAlertButton
+} from 'react-native-scl-alert';
 
 export default class OtherBankCreditCardScreen extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = { showSuccess: false, showAbort: false }
+  }
   render() {
     const {navigate} = this.props.navigation;
+    const showSuccessAlert = () => {
+      this.setState({ showSuccess: true })
+    }
+    const closeSuccessAlert = () => {
+      this.setState({ showSuccess: false })
+    }
+
+    const showAbortAlert = () => {
+      this.setState({ showAbort: true })
+    }
+    const closeAbortAlert = () => {
+      this.setState({ showAbort: false })
+    }
+
     return (
       <View style={styles.root}>
         <View style={styles.rect} />
@@ -40,8 +63,32 @@ export default class OtherBankCreditCardScreen extends Component {
         <MaterialUnderlineTextbox20 style={styles.materialUnderlineTextbox20} />
         <MaterialUnderlineTextbox21 style={styles.materialUnderlineTextbox21} />
         <MaterialUnderlineTextbox22 style={styles.materialUnderlineTextbox22} />
-        <MaterialButtonDark36 style={styles.materialButtonDark36} />
-        <MaterialButtonDark37 style={styles.materialButtonDark37} />
+        <View style={styles.materialButtonDark36}>
+          <TouchableOpacity style={[styles.cancelroot, this.props.style]} onPress={showAbortAlert}>
+            <Text style={styles.cancelcaption}>Cancel</Text>
+          </TouchableOpacity>
+          <SCLAlert
+            theme="danger"
+            show={this.state.showAbort}
+            title="Abort"
+            subtitle='Submission aborted'
+          >
+            <SCLAlertButton theme="danger" onPress={() => navigate('ThirdPartyTransferMenu')}>Abort</SCLAlertButton>
+          </SCLAlert>
+        </View>
+        <View style={styles.materialButtonDark37} >
+          <TouchableOpacity style={[styles.creditCardScrBtnRoot, this.props.style]} onPress={showSuccessAlert}>
+            <Text style={styles.creditCardScrBtnCaption}>Submit</Text>
+          </TouchableOpacity>
+          <SCLAlert
+            theme="success"
+            show={this.state.showSuccess}
+            title="Success"
+            subtitle="Successfully submitted"
+          >
+            <SCLAlertButton theme="success" onPress={closeSuccessAlert}>Done</SCLAlertButton>
+          </SCLAlert>
+        </View>
       </View>
     );
   }
@@ -56,6 +103,31 @@ const styles = StyleSheet.create({
   root: {
     flex: 1,
     backgroundColor: "white"
+  },
+  cancelroot: {
+    flex: 1,
+    backgroundColor: "#212121",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    paddingRight: 16,
+    paddingLeft: 16,
+    elevation: 2,
+    minWidth: 88,
+    borderRadius: 2,
+    shadowOffset: {
+      height: 1,
+      width: 0
+    },
+    shadowColor: "#000",
+    shadowOpacity: 0.35,
+    shadowRadius: 5
+  },
+  cancelcaption: {
+    color: "#fff",
+    fontSize: 14,
+    fontFamily: "roboto-regular",
+    fontWeight: "200"
   },
   aroot: {
     flex: 1,
@@ -75,6 +147,31 @@ const styles = StyleSheet.create({
     shadowColor: "#000",
     shadowOpacity: 0.35,
     shadowRadius: 5
+  },
+  creditCardScrBtnRoot: {
+    flex: 1,
+    backgroundColor: "#212121",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    paddingRight: 16,
+    paddingLeft: 16,
+    elevation: 2,
+    minWidth: 88,
+    borderRadius: 2,
+    shadowOffset: {
+      height: 1,
+      width: 0
+    },
+    shadowColor: "#000",
+    shadowOpacity: 0.35,
+    shadowRadius: 5
+  },
+  creditCardScrBtnCaption: {
+    color: "#fff",
+    fontSize: 14,
+    fontFamily: "roboto-regular",
+    fontWeight: "200"
   },
   acaption: {
     color: "white",

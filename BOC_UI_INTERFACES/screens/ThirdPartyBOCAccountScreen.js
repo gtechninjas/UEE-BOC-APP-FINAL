@@ -24,7 +24,9 @@ export default class ThirdPartyBOCAccountScreen extends Component {
       name: 'suren vithanage',
       nickName: 'suren',
       accountNumber: '0721313123213',
-      email: 'suren@gmail.com'
+      email: 'suren@gmail.com',
+      showSuccess: false, showAbort: false
+
     }
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -57,6 +59,21 @@ export default class ThirdPartyBOCAccountScreen extends Component {
   
   render() {
     const {navigate} = this.props.navigation;
+
+    const showSuccessAlert = () => {
+      this.setState({ showSuccess: true })
+    }
+    const closeSuccessAlert = () => {
+      this.setState({ showSuccess: false })
+    }
+
+    const showAbortAlert = () => {
+      this.setState({ showAbort: true })
+    }
+    const closeAbortAlert = () => {
+      this.setState({ showAbort: false })
+    }
+
     return (
       <View style={styles.root}>
         <View style={styles.rect} />
@@ -85,13 +102,32 @@ export default class ThirdPartyBOCAccountScreen extends Component {
         <MaterialUnderlineTextbox13 style={styles.materialUnderlineTextbox13} />
         <MaterialUnderlineTextbox14 style={styles.materialUnderlineTextbox14} />
         <MaterialUnderlineTextbox15 style={styles.materialUnderlineTextbox15} />
-        {/* <MaterialButtonDark30 style={styles.materialButtonDark30} /> */}
         <View style={styles.materialButtonDark30}>
-            <TouchableOpacity style={[styles.aroot, this.props.style]} onPress = { () => navigate('ThirdPartyTransferMenu')}>
+          <TouchableOpacity style={[styles.aroot, this.props.style]} onPress={showAbortAlert}>
             <Text style={styles.acaption}>Cancel</Text>
-            </TouchableOpacity>
+          </TouchableOpacity>
+          <SCLAlert
+            theme="danger"
+            show={this.state.showAbort}
+            title="Abort"
+            subtitle='Submission aborted'
+          >
+            <SCLAlertButton theme="danger" onPress={() => navigate('ThirdPartyTransferMenu')}>Abort</SCLAlertButton>
+          </SCLAlert>
         </View>
-        <MaterialButtonDark31 style={styles.materialButtonDark31} />
+        <View style={styles.materialButtonDark31} >
+          <TouchableOpacity style={[styles.thirdPartyBOCAccScrBtnRoot, this.props.style]} onPress={showSuccessAlert}>
+            <Text style={styles.thirdPartyBOCAccScrBtnCaption}>Submit</Text>
+          </TouchableOpacity>
+          <SCLAlert
+            theme="success"
+            show={this.state.showSuccess}
+            title="Success"
+            subtitle="Successfully submitted"
+          >
+            <SCLAlertButton theme="success" onPress={closeSuccessAlert}>Done</SCLAlertButton>
+          </SCLAlert>
+        </View>
         <Text style={styles.text7}>
           Entered beneficiary name will be displayed on the E-Receipt
         </Text>
@@ -109,6 +145,31 @@ const styles = StyleSheet.create({
   root: {
     flex: 1,
     backgroundColor: "white"
+  },
+  thirdPartyBOCAccScrBtnRoot: {
+    flex: 1,
+    backgroundColor: "#212121",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    paddingRight: 16,
+    paddingLeft: 16,
+    elevation: 2,
+    minWidth: 88,
+    borderRadius: 2,
+    shadowOffset: {
+      height: 1,
+      width: 0
+    },
+    shadowColor: "#000",
+    shadowOpacity: 0.35,
+    shadowRadius: 5
+  },
+  thirdPartyBOCAccScrBtnCaption: {
+    color: "#fff",
+    fontSize: 14,
+    fontFamily: "roboto-regular",
+    fontWeight: "200"
   },
   aroot: {
     flex: 1,

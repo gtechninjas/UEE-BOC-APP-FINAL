@@ -55,10 +55,10 @@ class Message extends Component {
                      style = {styles.messages}
                      onPress = {() => this.alertItemName(this.props.item.description)}>
                      <Image style={styles.cardImage}  source={require("../assets/images/1200px-Bank_of_Ceylon.svg.png")}/>   
-                     <Text style = {styles.text}>
+                     <Text style = {styles.textAccNo}>
                         {this.props.item.accNo}
                      </Text>
-                     <Text style = {styles.text}>
+                     <Text style = {styles.textDesc}>
                         {this.props.item.description}
                      </Text>
                      
@@ -89,7 +89,6 @@ const styles = StyleSheet.create ({
       },
    },
    textAccNo: {
-      
       fontSize:30,
       color: '#4f603c',
    },

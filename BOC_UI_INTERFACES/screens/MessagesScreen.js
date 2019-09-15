@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StyleSheet, View, Image, Text,FlatList, ActivityIndicator, ScrollView } from "react-native";
+import { StyleSheet, View, Image, Text,FlatList, ActivityIndicator, TouchableOpacity } from "react-native";
 import { List, ListItem } from "react-native-elements";
 import Message from "../components/Message";
 import MaterialButtonMessage from "../symbols/MaterialButtonMessage";
@@ -60,6 +60,8 @@ export default class MessagesScreen extends Component {
   }
 
   render() {
+    const {navigate} = this.props.navigation;
+    
     if(this.state.items.length == 0){
       return(
         <View style={styles.loader}>
@@ -67,6 +69,8 @@ export default class MessagesScreen extends Component {
         </View>
       )
     }
+
+
     return (
       <View style={styles.root}>
         <FlatList 
@@ -84,12 +88,13 @@ export default class MessagesScreen extends Component {
         />
         <View style={styles.rect3} />
         <Text style={styles.text2}>Messages</Text>
-        <MaterialButtonMessage
+
+
+            <MaterialButtonMessage
           iconFamily={"MaterialCommunityIcons"}
           iconName={"message-text"}
           style={styles.materialButtonMessage}
         />
-        
       </View>
     );
   }

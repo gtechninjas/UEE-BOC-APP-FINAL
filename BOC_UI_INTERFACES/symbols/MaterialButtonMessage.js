@@ -5,7 +5,7 @@ import Icon from "@builderx/icons";
 export default class MaterialButtonMessage extends Component {
   render() {
     return (
-      <TouchableOpacity style={[styles.root, this.props.style]}>
+      <TouchableOpacity style={[styles.root, this.props.style]} onPress = { () => navigate('ThirdPartyTransfer')}>
         <Icon
           name={this.props.iconName || "share-variant"}
           type={this.props.iconFamily || "MaterialCommunityIcons"}

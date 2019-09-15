@@ -5,6 +5,7 @@ import Message from "../components/Message";
 import MaterialButtonMessage from "../symbols/MaterialButtonMessage";
 import { Dropdown } from 'react-native-material-dropdown';
 import { } from 'react-navigation';
+import Icon from "@builderx/icons";
 import {
   SCLAlert,
   SCLAlertButton
@@ -90,11 +91,26 @@ export default class MessagesScreen extends Component {
         <Text style={styles.text2}>Messages</Text>
 
 
+            <TouchableOpacity style={[styles.aroot, this.props.style]} 
+            onPress = { () => navigate('ThirdPartyTransfer')}>
             <MaterialButtonMessage
           iconFamily={"MaterialCommunityIcons"}
           iconName={"message-text"}
           style={styles.materialButtonMessage}
         />
+            </TouchableOpacity>
+
+            <View style={styles.materialButtonMessage}>
+          <TouchableOpacity style={[styles.mroot, this.props.style]} onPress = { () => navigate('ComposeMessage')}>
+
+          
+        <Icon
+          name={this.props.iconName || "message-text"}
+          type={this.props.iconFamily || "MaterialCommunityIcons"}
+          style={styles.icon}
+        />
+          </TouchableOpacity>
+        </View>
       </View>
     );
   }
@@ -108,6 +124,30 @@ const styles = StyleSheet.create({
   root: {
     flex: 1,
     backgroundColor: "rgba(255,255,255,1)"
+  },
+  mroot: {
+    flex: 1,
+    
+    alignItems: "center",
+    justifyContent: "center",
+    elevation: 2,
+    minWidth: 40,
+    minHeight: 40,
+    borderRadius: 28,
+    shadowOffset: {
+      height: 5,
+      width: 5
+    },
+    shadowColor: "#111",
+    shadowOpacity: 0.2,
+    shadowRadius: 1.2
+  },
+  icon: {
+    color: "#fff",
+    backgroundColor: "#3F51B5",
+    fontFamily: "roboto-regular",
+    fontSize: 24,
+    alignSelf: "center"
   },
   loader:{
     flex:1,

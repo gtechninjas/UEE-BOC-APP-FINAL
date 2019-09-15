@@ -11,17 +11,48 @@ import { Dropdown } from 'react-native-material-dropdown';
 import {
   SCLAlert,
   SCLAlertButton
+
 } from 'react-native-scl-alert';
+import * as myConstClass from '../utility/constant';
+import axios from 'axios';
 
 export default class ThirdPartyBOCAccountScreen extends Component {
   constructor(props){
     super(props);
     this.state = {
       isDialogVisible: false,
+      name: 'suren vithanage',
+      nickName: 'suren',
+      accountNumber: '0721313123213',
+      email: 'suren@gmail.com'
     }
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
+
+  handleInputChange(e) {
+    this.setState({
+      [e.target.name]: e.target.value
+    })
+  }
+
   showDialog(isShow){
     this.setState({isDialogVisible: isShow});
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    const beneficiary = {
+      name: this.state.name,
+      nickName: this.state.nickName,
+      accountNumber: this.state.accountNumber,
+      address: this.state.address,
+      email: this.state.email
+    }
+    axios.post(`${myConstClass.PUBLIC_URL}/beneficiary`, beneficiary)
+      .then(res => alert('Successfully Created  : ' + res))
+      .catch(err => {
+        alert('Error : ' + err)
+      });
   }
   
   render() {

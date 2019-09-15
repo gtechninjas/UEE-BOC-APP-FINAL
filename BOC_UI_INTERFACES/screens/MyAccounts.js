@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { StyleSheet, View, Image, Text,FlatList, ActivityIndicator, TouchableOpacity } from "react-native";
+import { StyleSheet, View, Image, Text,FlatList, ActivityIndicator, ScrollView } from "react-native";
 import { List, ListItem } from "react-native-elements";
-import Message from "../components/Message";
+import Account from "../components/Account";
 import MaterialButtonMessage from "../symbols/MaterialButtonMessage";
 import { Dropdown } from 'react-native-material-dropdown';
 import { } from 'react-navigation';
@@ -11,7 +11,8 @@ import {
 } from 'react-native-scl-alert';
 
 
-export default class MessagesScreen extends Component {
+
+export default class MyAccounts extends Component {
   constructor(props) {
     super(props);
 
@@ -22,9 +23,23 @@ export default class MessagesScreen extends Component {
       seed: 1,
       error: null,
       refreshing: false,
+      accounts: [
+        {
+           id: 0,
+           accNo: '9712312345096845',
+           description: 'Savings Account'
+        },
+        {
+           id: 1,
+           accNo: '9748909864123462',
+           description: 'Current Account'
+        }
+        
+     ]
     };
   }
 
+  
   componentDidMount() {
     this._get('https://jsonplaceholder.typicode.com/posts')
     .then(
@@ -60,8 +75,6 @@ export default class MessagesScreen extends Component {
   }
 
   render() {
-    const {navigate} = this.props.navigation;
-    
     if(this.state.items.length == 0){
       return(
         <View style={styles.loader}>
@@ -69,15 +82,13 @@ export default class MessagesScreen extends Component {
         </View>
       )
     }
-
-
     return (
       <View style={styles.root}>
         <FlatList 
           style={styles.container}
-          data={this.state.items}
+          data={this.state.accounts}
           keyExtractor={(item, index) => index.toString()}
-          renderItem={({item})  => <Message item={item} />}
+          renderItem={({item})  => <Account item={item} />}
         />
         
         <View style={styles.rect} />
@@ -87,20 +98,14 @@ export default class MessagesScreen extends Component {
           style={styles.image}
         />
         <View style={styles.rect3} />
-        <Text style={styles.text2}>Messages</Text>
-
-
-            <MaterialButtonMessage
-          iconFamily={"MaterialCommunityIcons"}
-          iconName={"message-text"}
-          style={styles.materialButtonMessage}
-        />
+        <Text style={styles.text2}>My Accounts</Text>
+        
       </View>
     );
   }
 }
 
-MessagesScreen.navigationOptions = {
+MyAccounts.navigationOptions = {
   header : null,
 };
 

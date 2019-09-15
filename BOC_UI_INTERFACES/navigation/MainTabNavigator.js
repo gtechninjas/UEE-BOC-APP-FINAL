@@ -20,7 +20,8 @@ import AddexpenseScreen from '../screens/AddExpense';
 import PayBillsScreen from '../screens/PayBills';
 import TransferFinalScreen from '../screens/TransferFinalScreen';
 import MessageScreen from '../screens/MessagesScreen';
-import MyAccountScreen from '../screens/MyAccountScreen';
+import MyAccounts from '../screens/MyAccounts';
+import ComposeMessageScreen from '../screens/ComposeMesageScreen';
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
@@ -53,7 +54,7 @@ HomeStack.path = '';
 
 const MyAccountStack = createStackNavigator(
   {
-    MyAccount: MyAccountScreen,
+    MyAccounts: MyAccounts,
   },
   config
 );
@@ -74,6 +75,30 @@ MyAccountStack.navigationOptions = {
 };
 
 MyAccountStack.path = '';
+
+const ComposeMessageStack = createStackNavigator(
+  {
+    ComposeMessage: ComposeMessageScreen,
+  },
+  config
+);
+
+ComposeMessageStack.navigationOptions = {
+  // tabBarLabel: 'Home',
+  // tabBarIcon: ({ focused }) => (
+  //   <TabBarIcon
+  //     focused={focused}
+  //     name={
+  //       Platform.OS === 'ios'
+  //         ? `ios-information-circle${focused ? '' : '-outline'}`
+  //         : 'md-information-circle'
+  //     }
+  //   />
+  // ),
+  header : null,
+};
+
+ComposeMessageStack.path = '';
 
 const MessageStack = createStackNavigator(
   {
@@ -375,7 +400,8 @@ const tabNavigator = createStackNavigator({
   PayBillsStack,
   TransferFinalStack,
   MessageStack,
-  MyAccountStack
+  MyAccountStack,
+  ComposeMessageStack
 });
 
 tabNavigator.path = '';

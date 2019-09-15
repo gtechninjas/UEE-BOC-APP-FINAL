@@ -127,7 +127,7 @@ const styles = StyleSheet.create({
   },
   mroot: {
     flex: 1,
-    
+    backgroundColor: "#3F51B5",
     alignItems: "center",
     justifyContent: "center",
     elevation: 2,
@@ -144,7 +144,6 @@ const styles = StyleSheet.create({
   },
   icon: {
     color: "#fff",
-    backgroundColor: "#3F51B5",
     fontFamily: "roboto-regular",
     fontSize: 24,
     alignSelf: "center"

@@ -4,20 +4,8 @@ import MaterialFixedLabelTextbox1 from "../symbols/MaterialFixedLabelTextbox1";
 import MaterialFixedLabelTextbox2 from "../symbols/MaterialFixedLabelTextbox2";
 import CupertinoButtonWhiteTextColor from "../symbols/CupertinoButtonWhiteTextColor";
 import CupertinoButtonWhiteTextColor1 from "../symbols/CupertinoButtonWhiteTextColor1";
-import DialogInput from 'react-native-dialog-input';
 
 export default class ComposeMesageScreen extends Component {
-
-  constructor(props){
-    super(props);
-    this.state = {
-      isDialogVisible: false,
-    }
-  }
-  showDialog(isShow){
-    this.setState({isDialogVisible: isShow});
-  }
-
   render() {
     return (
       <View style={styles.root}>
@@ -30,20 +18,10 @@ export default class ComposeMesageScreen extends Component {
           resizeMode={"contain"}
           style={styles.image}
         />
-        <DialogInput isDialogVisible={this.state.isDialogVisible}
-            title={"Add Income"}
-            message={"Enter the income amount(Rs)"}
-            hintInput ={"0.00"}
-            submitInput={ (inputText) => {this.sendInput(inputText)} }
-            closeDialog={ () => {this.showDialog(false)}}>
-       </DialogInput>
-       <DialogInput isDialogVisible={this.state.isDialogVisible}
-            title={"Add Income"}
-            message={"Enter the income amount(Rs)"}
-            hintInput ={"0.00"}
-            submitInput={ (inputText) => {this.sendInput(inputText)} }
-            closeDialog={ () => {this.showDialog(false)}}>
-       </DialogInput>
+        <MaterialFixedLabelTextbox1 style={styles.materialFixedLabelTextbox1} />
+        <MaterialFixedLabelTextbox2 style={styles.materialFixedLabelTextbox2} />
+        <Text style={styles.text2}>Customer:</Text>
+        <Text style={styles.text3}>Subject:</Text>
         <CupertinoButtonWhiteTextColor
           style={styles.cupertinoButtonWhiteTextColor}
         />

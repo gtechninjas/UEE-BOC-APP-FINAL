@@ -55,7 +55,7 @@ class Message extends Component {
                      
                      style = {styles.messages}
                      onPress={() => {
-                        this.props.navigation.goBack();
+                        this.props.navigation.navigate('MyAccount');
                       }}>
                      <Image style={styles.cardImage}  source={require("../assets/images/1200px-Bank_of_Ceylon.svg.png")}/>   
                      <Text style = {styles.textAccNo}>

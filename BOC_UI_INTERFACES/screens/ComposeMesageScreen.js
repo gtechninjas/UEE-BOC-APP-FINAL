@@ -4,9 +4,31 @@ import MaterialFixedLabelTextbox1 from "../symbols/MaterialFixedLabelTextbox1";
 import MaterialFixedLabelTextbox2 from "../symbols/MaterialFixedLabelTextbox2";
 import CupertinoButtonWhiteTextColor from "../symbols/CupertinoButtonWhiteTextColor";
 import CupertinoButtonWhiteTextColor1 from "../symbols/CupertinoButtonWhiteTextColor1";
+import { Dropdown } from 'react-native-material-dropdown';
 
 export default class ComposeMesageScreen extends Component {
+
+  constructor(props){
+    super(props);
+    this.state = {
+      name: '',
+      subject:''
+    }
+  }
+
   render() {
+
+    const accountList = [{
+      value: '1234567234563456',
+    }, {
+      value: '8653215643127896',
+    }];
+
+    const subjectList = [{
+      value: 'Account locked',
+    }, {
+      value: 'Card Stolen',
+    }];
     return (
       <View style={styles.root}>
         <View style={styles.rect} />
@@ -18,10 +40,18 @@ export default class ComposeMesageScreen extends Component {
           resizeMode={"contain"}
           style={styles.image}
         />
-        <MaterialFixedLabelTextbox1 style={styles.materialFixedLabelTextbox1} />
-        <MaterialFixedLabelTextbox2 style={styles.materialFixedLabelTextbox2} />
-        <Text style={styles.text2}>Customer:</Text>
-        <Text style={styles.text3}>Subject:</Text>
+        <View style={styles.materialFixedLabelTextbox1}>
+        <Dropdown
+          label='Select Account'
+          data={accountList}
+        />
+        </View>
+        <View style={styles.materialFixedLabelTextbox2}>
+        <Dropdown
+          label='Select Subject'
+          data={subjectList}
+        />
+        </View>
         <CupertinoButtonWhiteTextColor
           style={styles.cupertinoButtonWhiteTextColor}
         />

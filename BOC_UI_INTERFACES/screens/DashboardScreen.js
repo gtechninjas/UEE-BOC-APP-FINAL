@@ -40,13 +40,13 @@ export default class DashboardScreen extends Component {
         <Text style={styles.text3}>Last login Aug 05 2019</Text>
         <Text style={styles.text4}>DASHBOARD</Text>
         <View style={styles.rect3} />
-        <MaterialButtonTransparentHamburger
+        {/* <MaterialButtonTransparentHamburger
           style={styles.materialButtonTransparentHamburger}
-        />
+        /> */}
         <MaterialButtonGrey3 style={styles.materialButtonGrey3} />
         <Text style={styles.text5}>LKR 50,000.00</Text>
         <Text style={styles.text6}>LKR 0.00</Text>
-        <View style={styles.rect4} />
+        {/* <View style={styles.rect4} /> */}
         <View style={styles.materialButtonDark20} >
           <TouchableOpacity style={[styles.aroot, this.props.style]} onPress = { () => navigate('MyAccounts')}>
           <Text style={styles.acaption}>Accounts</Text>
@@ -69,7 +69,17 @@ export default class DashboardScreen extends Component {
             <Text style={styles.acaption}>Own Account Transfer</Text>
             </TouchableOpacity>
         </View>
-        <Image
+        <View style={styles.materialButtonDark24}>
+            <TouchableOpacity style={[styles.aroot, this.props.style]} onPress = { () => navigate('Reminder')}>
+            <Text style={styles.acaption}>Reminder</Text>
+            </TouchableOpacity>
+        </View>
+        <View style={styles.materialButtonDark25}>
+            <TouchableOpacity style={[styles.aroot, this.props.style]} onPress = { () => navigate('Message')}>
+            <Text style={styles.acaption}>Message</Text>
+            </TouchableOpacity>
+        </View>
+        {/* <Image
           source={require("../assets/images/img_289761.png")}
           resizeMode={"contain"}
           style={styles.image2}
@@ -81,14 +91,14 @@ export default class DashboardScreen extends Component {
           onPress = { () => navigate('Reminder')}
         />
         <View style={styles.messageButton}>
-        <TouchableOpacity style={[styles.aroot, this.props.style]} onPress={ () => navigate('Message') }>
+        <TouchableOpacity activeOpacity = {.5} style={[styles.aroot, this.props.style]} onPress={ () => navigate('Message') }>
         <Image
           source={require("../assets/images/51-512.png")}
           resizeMode={"contain"}
           style={styles.image4}
         />
         </TouchableOpacity>
-        </View>
+        </View> */}
       </View>
     );
   }
@@ -244,27 +254,41 @@ const styles = StyleSheet.create({
     position: "absolute"
   },
   materialButtonDark20: {
-    top: 450,
+    top: 350,
     left: 34,
     width: 138,
     height: 54,
     position: "absolute"
   },
   materialButtonDark21: {
-    top: 550,
+    top: 450,
     left: 34,
     width: 138,
     height: 54,
     position: "absolute"
   },
   materialButtonDark22: {
-    top: 450,
+    top: 350,
     left: 199.19,
     width: 138,
     height: 53.47,
     position: "absolute"
   },
   materialButtonDark23: {
+    top: 450,
+    left: 199.19,
+    width: 138,
+    height: 54,
+    position: "absolute"
+  },
+  materialButtonDark24: {
+    top: 550,
+    left: 34,
+    width: 138,
+    height: 54,
+    position: "absolute"
+  },
+  materialButtonDark25: {
     top: 550,
     left: 199.19,
     width: 138,

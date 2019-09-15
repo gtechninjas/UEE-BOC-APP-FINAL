@@ -14,32 +14,42 @@ export default class MyAccountScreen extends Component {
           style={styles.image}
         />
         <View style={styles.rect3} />
-        <Text style={styles.text2}>My Account</Text>
-        <Center horizontal>
-          <Text style={styles.text}>Text Added</Text>
-        </Center>
+        <Text style={styles.text2}>My Accounts</Text>
+        
         <MaterialBasicTab style={styles.materialBasicTab} />
         <Center horizontal>
-          <Text style={styles.text2}>Text Added</Text>
+          <Text style={styles.text2}></Text>
         </Center>
-        <Text style={styles.text3}>Text Added</Text>
-        <Text style={styles.text4}>Text Added</Text>
+        <Text style={styles.text3}>Current Balance</Text>
+        <Text style={styles.text4}>Rs. 12, 000</Text>
       </View>
     );
   }
 }
 
+MyAccountScreen.navigationOptions = {
+  header : null,
+};
+
 const styles = StyleSheet.create({
   root: {
     flex: 1,
-    backgroundColor: "rgb(255,255,255)"
+    backgroundColor: "rgba(255,255,255,1)"
   },
   rect: {
-    top: 240,
-    left: 36.2,
-    width: 304,
-    height: 166,
-    backgroundColor: "rgba(230, 230, 230,1)",
+    top: 0,
+    left: 0.13,
+    width: 375,
+    height: 72.64,
+    backgroundColor: "rgba(250,164,51,1)",
+    position: "absolute"
+  },
+  rect2: {
+    top: 670.53,
+    left: 0,
+    width: 375.26,
+    height: 78.44,
+    backgroundColor: "rgba(250,164,51,1)",
     position: "absolute"
   },
   materialHeader2: {
@@ -76,9 +86,12 @@ const styles = StyleSheet.create({
     position: "absolute"
   },
   text2: {
-    top: 264.2,
+    top: 96.54,
+    left: 140.29,
     color: "#121212",
-    position: "absolute"
+    position: "absolute",
+    fontSize: 20,
+    fontWeight: "bold"
   },
   text3: {
     top: 337.2,

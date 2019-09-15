@@ -73,7 +73,7 @@ const styles = StyleSheet.create ({
       padding: 10,
       marginTop: 3,
       marginLeft:'2%',
-      backgroundColor: '#D7DBDD',
+      backgroundColor: '#ECF0F1',
       width:'96%',
       shadowColor:'#000',
       shadowOpacity:0.2,
@@ -82,9 +82,9 @@ const styles = StyleSheet.create ({
          width:3,
          height:3
       },
+      borderRadius:20
    },
    text: {
-      alignSelf:"flex-end",
       fontSize:16,
       color: '#4f603c',
    },

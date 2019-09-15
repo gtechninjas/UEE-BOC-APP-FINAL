@@ -19,6 +19,8 @@ import BudgetCalculatorScreen from '../screens/BudgetCalculator';
 import AddexpenseScreen from '../screens/AddExpense';
 import PayBillsScreen from '../screens/PayBills';
 import TransferFinalScreen from '../screens/TransferFinalScreen';
+import MessageScreen from '../screens/MessagesScreen';
+import MyAccountScreen from '../screens/MyAccountScreen';
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
@@ -48,6 +50,55 @@ HomeStack.navigationOptions = {
 };
 
 HomeStack.path = '';
+
+const MyAccountStack = createStackNavigator(
+  {
+    MyAccount: MyAccountScreen,
+  },
+  config
+);
+
+MyAccountStack.navigationOptions = {
+  // tabBarLabel: 'Home',
+  // tabBarIcon: ({ focused }) => (
+  //   <TabBarIcon
+  //     focused={focused}
+  //     name={
+  //       Platform.OS === 'ios'
+  //         ? `ios-information-circle${focused ? '' : '-outline'}`
+  //         : 'md-information-circle'
+  //     }
+  //   />
+  // ),
+  header : null,
+};
+
+MyAccountStack.path = '';
+
+const MessageStack = createStackNavigator(
+  {
+    Message: MessageScreen,
+  },
+  config
+);
+
+
+MessageStack.navigationOptions = {
+  // tabBarLabel: 'Home',
+  // tabBarIcon: ({ focused }) => (
+  //   <TabBarIcon
+  //     focused={focused}
+  //     name={
+  //       Platform.OS === 'ios'
+  //         ? `ios-information-circle${focused ? '' : '-outline'}`
+  //         : 'md-information-circle'
+  //     }
+  //   />
+  // ),
+  header : null,
+};
+
+MessageStack.path = '';
 
 const LoginStack = createStackNavigator(
   {
@@ -322,7 +373,9 @@ const tabNavigator = createStackNavigator({
   BudgetCalculatorStack,
   AddExpenseStack,
   PayBillsStack,
-  TransferFinalStack
+  TransferFinalStack,
+  MessageStack,
+  MyAccountStack
 });
 
 tabNavigator.path = '';

@@ -7,7 +7,7 @@ export default class ExpenseDescrTextBox extends Component {
       <View style={[styles.root, this.props.style]}>
         <TextInput
           placeholder={this.props.inputStyle || "Expense Description"}
-          editable={false}
+          editable={true}
           style={styles.inputStyle}
         />
       </View>

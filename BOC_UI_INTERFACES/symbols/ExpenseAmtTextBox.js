@@ -2,13 +2,22 @@ import React, { Component } from "react";
 import { StyleSheet, View, TextInput } from "react-native";
 
 export default class ExpenseAmtTextbox extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      expenseAmt: 0
+    }
+  }
   render() {
     return (
       <View style={[styles.root, this.props.style]}>
         <TextInput
+          keyboardType='numeric'
           placeholder={this.props.inputStyle || "Expense Amount"}
-          editable={false}
+          editable={true}
           style={styles.inputStyle}
+          onChangeText={(expenseAmt) => this.setState({ expenseAmt })}
+          value={this.state.expenseAmt}
         />
       </View>
     );

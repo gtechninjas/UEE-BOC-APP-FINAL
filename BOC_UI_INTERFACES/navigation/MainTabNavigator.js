@@ -18,6 +18,9 @@ import OtherBankCreditCardScreen from '../screens/OtherBankCreditCardScreen';
 import BudgetCalculatorScreen from '../screens/BudgetCalculator';
 import AddexpenseScreen from '../screens/AddExpense';
 import PayBillsScreen from '../screens/PayBills';
+import TransferFinalScreen from '../screens/TransferFinalScreen';
+import MessageScreen from '../screens/MessagesScreen';
+import MyAccounts from '../screens/MyAccounts';
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
@@ -47,6 +50,55 @@ HomeStack.navigationOptions = {
 };
 
 HomeStack.path = '';
+
+const MyAccountStack = createStackNavigator(
+  {
+    MyAccounts: MyAccounts,
+  },
+  config
+);
+
+MyAccountStack.navigationOptions = {
+  // tabBarLabel: 'Home',
+  // tabBarIcon: ({ focused }) => (
+  //   <TabBarIcon
+  //     focused={focused}
+  //     name={
+  //       Platform.OS === 'ios'
+  //         ? `ios-information-circle${focused ? '' : '-outline'}`
+  //         : 'md-information-circle'
+  //     }
+  //   />
+  // ),
+  header : null,
+};
+
+MyAccountStack.path = '';
+
+const MessageStack = createStackNavigator(
+  {
+    Message: MessageScreen,
+  },
+  config
+);
+
+
+MessageStack.navigationOptions = {
+  // tabBarLabel: 'Home',
+  // tabBarIcon: ({ focused }) => (
+  //   <TabBarIcon
+  //     focused={focused}
+  //     name={
+  //       Platform.OS === 'ios'
+  //         ? `ios-information-circle${focused ? '' : '-outline'}`
+  //         : 'md-information-circle'
+  //     }
+  //   />
+  // ),
+  header : null,
+};
+
+MessageStack.path = '';
 
 const LoginStack = createStackNavigator(
   {
@@ -271,6 +323,23 @@ OtherBankAccountStack.navigationOptions = {
 
 OtherBankAccountStack.path = '';
 
+const TransferFinalStack = createStackNavigator(
+  {
+    TransferFinal: TransferFinalScreen,
+  },
+  config
+);
+
+TransferFinalStack.navigationOptions = {
+  // tabBarLabel: 'Settings',
+  // tabBarIcon: ({ focused }) => (
+  //   <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
+  // ),
+  header : null,
+};
+
+TransferFinalStack.path = '';
+
 const OtherBankCreditCardStack = createStackNavigator(
   {
     OtherBankCreditCard: OtherBankCreditCardScreen,
@@ -303,7 +372,10 @@ const tabNavigator = createStackNavigator({
   OtherBankAccCreditMenuStack,
   BudgetCalculatorStack,
   AddExpenseStack,
-  PayBillsStack
+  PayBillsStack,
+  TransferFinalStack,
+  MessageStack,
+  MyAccountStack
 });
 
 tabNavigator.path = '';

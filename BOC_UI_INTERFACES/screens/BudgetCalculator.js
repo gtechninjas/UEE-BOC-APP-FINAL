@@ -59,7 +59,7 @@ export default class BudgetCalculator extends Component {
             closeDialog={ () => {this.showDialog(false)}}>
        </DialogInput>
         <TouchableOpacity onPress={()=>{this.showDialog(true)}} style={{padding:10}} style={[styles.incomeroot,this.props.style]}>
-          <Text style={styles.incomecaption}>Add Income</Text>
+          <Text style={styles.incomecaption}>ADD INCOME</Text>
         </TouchableOpacity>
       </View>
         <View style={styles.AddExpenseBtn}>
@@ -67,10 +67,9 @@ export default class BudgetCalculator extends Component {
             <Text style={styles.expensecaption}>ADD EXPENSE</Text>
             </TouchableOpacity>
         </View>
-        <MaterialButtonViolet3 style={styles.SummaryBtn} />
         <View style={styles.SummaryBtn}>
             <TouchableOpacity style={[styles.finalresultroot,this.props.style]}>
-            <Text style={styles.finalresultcaption}>Final Result</Text>
+            <Text style={styles.finalresultcaption}>FINAL RESULT</Text>
             </TouchableOpacity>
         </View>
         <Image
@@ -84,7 +83,7 @@ export default class BudgetCalculator extends Component {
           style={styles.addExpenseIcon}
         />
         <Image
-          source={require("../assets/images/summary1.jpg")}
+          source={require("../assets/images/summary1.png")}
           resizeMode={"contain"}
           style={styles.summaryIcon}
         />
@@ -217,7 +216,7 @@ const styles = StyleSheet.create({
   },
   summaryIcon: {
     top: 560.00,
-    left: 147.54,
+    left: 264.54,
     width: 80.41,
     height: 63.77,
     position: "absolute"

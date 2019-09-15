@@ -3,15 +3,19 @@ import { StyleSheet, View, Image, Text,TouchableOpacity, Alert } from "react-nat
 import MaterialButtonViolet9 from "../symbols/MaterialButtonViolet9";
 import { Dropdown } from 'react-native-material-dropdown';
 import { } from 'react-navigation';
-
+import {
+  SCLAlert,
+  SCLAlertButton
+} from 'react-native-scl-alert';
 export default class PayBills extends Component {
   constructor(props) {
     super(props);
+    this.state = {showPayeeDetails: false}
   }
 
   render() {
     const {navigate} = this.props.navigation;
-    
+
     const customerList = [{
       value: 'S.A. Withanage',
     }, {
@@ -22,6 +26,9 @@ export default class PayBills extends Component {
     {
       value: 'Pasindu Kulasooriya',
     }];
+    const showPayeeDetails = () =>{
+      this.setState({ showPayeeDetails: false })
+   }
     const payeeList = [{
         value: 'Electricity Bill',
       }, {
@@ -49,7 +56,12 @@ export default class PayBills extends Component {
         data={payeeList}
       />
       </View>
-        <MaterialButtonViolet9 style={styles.materialButtonViolet7} />
+        <View style={styles.materialButtonViolet7}>
+        <TouchableOpacity style={[styles.payBillsRoot, this.props.style]} onPress = {showPayeeDetails}>
+        <Text style={styles.payBillsCaption}>NEXT</Text>
+        </TouchableOpacity>
+        </View>
+        
         <View style={styles.materialButtonViolet8}>
             <TouchableOpacity style={[styles.cancelroot,this.props.style]} onPress = { () => navigate('Dashboard')}>
             <Text style={styles.cancelcaption}>CANCEL</Text>
@@ -60,10 +72,6 @@ export default class PayBills extends Component {
   }
 }
 PayBills.navigationOptions = {
-  // tabBarLabel: 'Settings',
-  // tabBarIcon: ({ focused }) => (
-  //   <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
-  // ),
   header : null,
 };
 
@@ -87,6 +95,33 @@ const styles = StyleSheet.create({
     height: 78.44,
     backgroundColor: "rgba(250,164,51,1)",
     position: "absolute"
+  },
+  payBillsRoot: {
+    flex: 1,
+    backgroundColor: "rgba(255,255,255,1)",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    paddingRight: 16,
+    paddingLeft: 16,
+    elevation: 2,
+    minWidth: 88,
+    borderRadius: 5,
+    borderColor: "rgba(57,173,11,1)",
+    borderWidth: 3,
+    shadowOffset: {
+      height: 1,
+      width: 0
+    },
+    shadowColor: "#000",
+    shadowOpacity: 0.35,
+    shadowRadius: 5
+  },
+  payBillsCaption: {
+    color: "rgba(0,0,0,1)",
+    fontSize: 14,
+    fontFamily: "roboto-regular",
+    fontWeight: "200"
   },
   rect3: {
     top: 71.03,
@@ -140,7 +175,7 @@ const styles = StyleSheet.create({
   },
   text2: {
     top: 96.54,
-    left: 100.29,
+    left: 140.29,
     color: "#121212",
     position: "absolute",
     fontSize: 20,

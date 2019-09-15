@@ -47,7 +47,11 @@ export default class DashboardScreen extends Component {
         <Text style={styles.text5}>LKR 50,000.00</Text>
         <Text style={styles.text6}>LKR 0.00</Text>
         <View style={styles.rect4} />
-        <MaterialButtonDark20 style={styles.materialButtonDark20}  />
+        <View style={styles.materialButtonDark20} >
+          <TouchableOpacity style={[styles.aroot, this.props.style]} onPress = { () => navigate('MyAccounts')}>
+          <Text style={styles.acaption}>Accounts</Text>
+          </TouchableOpacity>
+        </View>
         {/* <MaterialButtonDark21 style={styles.materialButtonDark21} onPress = { () => navigate('ThirdPartyTransfer')}/> */}
         <View style={styles.materialButtonDark21}>
             <TouchableOpacity style={[styles.aroot, this.props.style]} onPress = { () => navigate('ThirdPartyTransfer')}>
@@ -61,7 +65,7 @@ export default class DashboardScreen extends Component {
         </View>
         {/* <MaterialButtonDark23 style={styles.materialButtonDark23} /> */}
         <View style={styles.materialButtonDark23}>
-            <TouchableOpacity style={[styles.aroot, this.props.style]} onPress = { () => navigate('ThirdPartyTransferMenu')}>
+            <TouchableOpacity style={[styles.aroot, this.props.style]} onPress = { () => navigate('TransferFinal')}>
             <Text style={styles.acaption}>Own Account Transfer</Text>
             </TouchableOpacity>
         </View>
@@ -76,11 +80,15 @@ export default class DashboardScreen extends Component {
           style={styles.image3}
           onPress = { () => navigate('Reminder')}
         />
+        <View style={styles.messageButton}>
+        <TouchableOpacity style={[styles.aroot, this.props.style]} onPress={ () => navigate('Message') }>
         <Image
           source={require("../assets/images/51-512.png")}
           resizeMode={"contain"}
           style={styles.image4}
         />
+        </TouchableOpacity>
+        </View>
       </View>
     );
   }
@@ -93,6 +101,14 @@ DashboardScreen.navigationOptions = {
 const styles = StyleSheet.create({
   root: {
     flex: 1
+  },
+  messageButton: {
+    top: 340,
+    left: 222.41,
+    width: 168.39,
+    height: 59.86,
+    backgroundColor: "rgba(250,164,51,1)",
+    position: "absolute"
   },
   aroot: {
     flex: 1,

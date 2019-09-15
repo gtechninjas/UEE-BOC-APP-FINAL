@@ -93,11 +93,7 @@ export default class MessagesScreen extends Component {
 
             <TouchableOpacity style={[styles.aroot, this.props.style]} 
             onPress = { () => navigate('ThirdPartyTransfer')}>
-            <MaterialButtonMessage
-          iconFamily={"MaterialCommunityIcons"}
-          iconName={"message-text"}
-          style={styles.materialButtonMessage}
-        />
+            
             </TouchableOpacity>
 
             <View style={styles.materialButtonMessage}>
@@ -127,7 +123,6 @@ const styles = StyleSheet.create({
   },
   mroot: {
     flex: 1,
-    backgroundColor: "#3F51B5",
     alignItems: "center",
     justifyContent: "center",
     elevation: 2,

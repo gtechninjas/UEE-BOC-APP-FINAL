@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { Text, View, TouchableOpacity, StyleSheet, Image } from 'react-native'
 import { List, ListItem } from 'react-native-elements'
-   
+import { withNavigation } from 'react-navigation';
+
 class Message extends Component {
    state = {
       names: [
@@ -53,7 +54,9 @@ class Message extends Component {
                   <TouchableOpacity
                      
                      style = {styles.messages}
-                     onPress = {() => this.alertItemName(this.props.item.description)}>
+                     onPress={() => {
+                        this.props.navigation.goBack();
+                      }}>
                      <Image style={styles.cardImage}  source={require("../assets/images/1200px-Bank_of_Ceylon.svg.png")}/>   
                      <Text style = {styles.textAccNo}>
                         {this.props.item.accNo}
@@ -69,7 +72,7 @@ class Message extends Component {
       )
    }
 }
-export default Message
+export default withNavigation(Message)
 
 const styles = StyleSheet.create ({
    messages: {

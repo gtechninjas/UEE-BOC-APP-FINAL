@@ -15,15 +15,13 @@ export default class MyAccountScreen extends Component {
         />
         <View style={styles.rect3} />
         <Text style={styles.text2}>My Accounts</Text>
-        <Center horizontal>
-          <Text style={styles.text}>Text Added</Text>
-        </Center>
+        
         <MaterialBasicTab style={styles.materialBasicTab} />
         <Center horizontal>
-          <Text style={styles.text2}>Text Added</Text>
+          <Text style={styles.text2}></Text>
         </Center>
-        <Text style={styles.text3}>Text Added</Text>
-        <Text style={styles.text4}>Text Added</Text>
+        <Text style={styles.text3}>Current Balance</Text>
+        <Text style={styles.text4}>Rs. 12, 000</Text>
       </View>
     );
   }
@@ -88,9 +86,12 @@ const styles = StyleSheet.create({
     position: "absolute"
   },
   text2: {
-    top: 264.2,
+    top: 96.54,
+    left: 140.29,
     color: "#121212",
-    position: "absolute"
+    position: "absolute",
+    fontSize: 20,
+    fontWeight: "bold"
   },
   text3: {
     top: 337.2,

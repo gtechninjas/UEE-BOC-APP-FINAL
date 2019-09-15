@@ -16,7 +16,7 @@ export default class OtherBankAccountScreen extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { description: 'Expense Description' || '', expenseAmt: 0 || 0, expenseCategory: '', showSuccess: false, showAbort: false }
+    this.state = { showSuccess: false, showAbort: false }
   }
   render() {
     const { navigate } = this.props.navigation;
@@ -77,8 +77,19 @@ export default class OtherBankAccountScreen extends Component {
             data={customerList}
           />
         </View>
-        <MaterialButtonDark35 style={styles.materialButtonDark35} >
-        </MaterialButtonDark35>
+        <View style={styles.materialButtonDark35} >
+          <TouchableOpacity style={[styles.OtherBankBtnRoot, this.props.style]} onPress={showSuccessAlert}>
+            <Text style={styles.OtherBankBtnCaption}>Submit</Text>
+          </TouchableOpacity>
+          <SCLAlert
+            theme="success"
+            show={this.state.showSuccess}
+            title="Success"
+            subtitle="Successfully added"
+          >
+            <SCLAlertButton theme="success" onPress={closeSuccessAlert}>Done</SCLAlertButton>
+          </SCLAlert>
+        </View>
       </View>
     );
   }
@@ -93,6 +104,31 @@ const styles = StyleSheet.create({
   root: {
     flex: 1,
     backgroundColor: "white"
+  },
+  OtherBankBtnRoot: {
+    flex: 1,
+    backgroundColor: "#212121",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    paddingRight: 16,
+    paddingLeft: 16,
+    elevation: 2,
+    minWidth: 88,
+    borderRadius: 2,
+    shadowOffset: {
+      height: 1,
+      width: 0
+    },
+    shadowColor: "#000",
+    shadowOpacity: 0.35,
+    shadowRadius: 5
+  },
+  OtherBankBtnCaption: {
+    color: "#fff",
+    fontSize: 14,
+    fontFamily: "roboto-regular",
+    fontWeight: "200"
   },
   aroot: {
     flex: 1,

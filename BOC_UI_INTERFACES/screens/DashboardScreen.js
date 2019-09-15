@@ -48,7 +48,7 @@ export default class DashboardScreen extends Component {
         <Text style={styles.text6}>LKR 0.00</Text>
         <View style={styles.rect4} />
         <View style={styles.materialButtonDark20} >
-          <TouchableOpacity style={[styles.aroot, this.props.style]} onPress = { () => navigate('MyAccount')}>
+          <TouchableOpacity style={[styles.aroot, this.props.style]} onPress = { () => navigate('MyAccounts')}>
           <Text style={styles.acaption}>Accounts</Text>
           </TouchableOpacity>
         </View>

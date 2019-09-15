@@ -20,7 +20,7 @@ import AddexpenseScreen from '../screens/AddExpense';
 import PayBillsScreen from '../screens/PayBills';
 import TransferFinalScreen from '../screens/TransferFinalScreen';
 import MessageScreen from '../screens/MessagesScreen';
-import MyAccountScreen from '../screens/MyAccountScreen';
+import MyAccounts from '../screens/MyAccounts';
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
@@ -53,7 +53,7 @@ HomeStack.path = '';
 
 const MyAccountStack = createStackNavigator(
   {
-    MyAccount: MyAccountScreen,
+    MyAccounts: MyAccounts,
   },
   config
 );

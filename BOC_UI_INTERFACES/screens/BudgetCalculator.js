@@ -55,6 +55,7 @@ export default class BudgetCalculator extends Component {
             title={"Add Income"}
             message={"Enter the income amount(Rs)"}
             hintInput ={"0.00"}
+            pattern={"[0-9]*"}
             submitInput={ (inputText) => {this.sendInput(inputText)} }
             closeDialog={ () => {this.showDialog(false)}}>
        </DialogInput>

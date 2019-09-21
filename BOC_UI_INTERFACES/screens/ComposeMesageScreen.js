@@ -1,9 +1,13 @@
 import React, { Component } from "react";
-import { StyleSheet, View, Text, Image, TextInput } from "react-native";
+import { StyleSheet, View, Text, Image, TextInput, TouchableOpacity } from "react-native";
 import MaterialFixedLabelTextbox1 from "../symbols/MaterialFixedLabelTextbox1";
 import MaterialFixedLabelTextbox2 from "../symbols/MaterialFixedLabelTextbox2";
 import CupertinoButtonWhiteTextColor from "../symbols/CupertinoButtonWhiteTextColor";
 import CupertinoButtonWhiteTextColor1 from "../symbols/CupertinoButtonWhiteTextColor1";
+import {
+  SCLAlert,
+  SCLAlertButton
+} from 'react-native-scl-alert';
 import { Dropdown } from 'react-native-material-dropdown';
 
 export default class ComposeMesageScreen extends Component {
@@ -12,11 +16,26 @@ export default class ComposeMesageScreen extends Component {
     super(props);
     this.state = {
       name: '',
-      subject:''
+      subject:'',
+      showSuccess: false, showAbort: false
     }
   }
 
   render() {
+
+    const showSuccessAlert = () => {
+      this.setState({ showSuccess: true })
+    }
+    const closeSuccessAlert = () => {
+      this.setState({ showSuccess: false })
+    }
+
+    const showAbortAlert = () => {
+      this.setState({ showAbort: true })
+    }
+    const closeAbortAlert = () => {
+      this.setState({ showAbort: false })
+    }
 
     const accountList = [{
       value: '1234567234563456',
@@ -55,9 +74,19 @@ export default class ComposeMesageScreen extends Component {
         <CupertinoButtonWhiteTextColor
           style={styles.cupertinoButtonWhiteTextColor}
         />
-        <CupertinoButtonWhiteTextColor1
-          style={styles.cupertinoButtonWhiteTextColor1}
-        />
+        <View style={styles.cupertinoButtonWhiteTextColor1} >
+          <TouchableOpacity style={[styles.composeBtnRoot, this.props.style]} onPress={showSuccessAlert}>
+            <Text style={styles.composeBtnCaption}>Submit</Text>
+          </TouchableOpacity>
+          <SCLAlert
+            theme="success"
+            show={this.state.showSuccess}
+            title="Success"
+            subtitle="Successfully sumitted"
+          >
+            <SCLAlertButton theme="success" onPress={closeSuccessAlert}>Done</SCLAlertButton>
+          </SCLAlert>
+        </View>
         <View style={styles.rect4} />
         <Text style={styles.text4} />
         <TextInput placeholder={""} style={styles.textInput} />
@@ -76,6 +105,20 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "rgb(255,255,255)",
     borderRadius: 0
+  },
+  composeBtnRoot: {
+    flex: 1,
+    backgroundColor: "transparent",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: 5
+  },
+  composeBtnCaption: {
+    color: "#fff",
+    fontSize: 17,
+    fontFamily: "roboto-regular",
+    fontWeight: "500"
   },
   rect: {
     top: 0,

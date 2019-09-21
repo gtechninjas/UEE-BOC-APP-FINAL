@@ -23,6 +23,7 @@ import MessageScreen from '../screens/MessagesScreen';
 import MyAccounts from '../screens/MyAccounts';
 import MyAccount from '../screens/MyAccountScreen';
 import ComposeMessageScreen from '../screens/ComposeMesageScreen';
+import AddPayBillsScreen from '../screens/AddPayBills';
 import MessageBtn from '../symbols/MaterialButtonMessage';
 
 const config = Platform.select({
@@ -53,6 +54,22 @@ HomeStack.navigationOptions = {
 };
 
 HomeStack.path = '';
+const AddPayBillsStack = createStackNavigator(
+  {
+    AddPayBills: AddPayBillsScreen,
+  },
+  config
+);
+
+AddPayBillsStack.navigationOptions = {
+  // tabBarLabel: 'Settings',
+  // tabBarIcon: ({ focused }) => (
+  //   <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
+  // ),
+  header : null,
+};
+
+AddPayBillsStack.path = '';
 
 const MessageBtnStack = createStackNavigator(
   {
@@ -453,6 +470,7 @@ const tabNavigator = createStackNavigator({
   MyAccountStack,
   MyAccountsStack,
   ComposeMessageStack,
+  AddPayBillsStack,
   MessageBtnStack
 });
 

@@ -17,7 +17,7 @@ import * as myConstClass from '../utility/constant';
 import axios from 'axios';
 
 export default class ThirdPartyBOCAccountScreen extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       isDialogVisible: false,
@@ -37,8 +37,8 @@ export default class ThirdPartyBOCAccountScreen extends Component {
     })
   }
 
-  showDialog(isShow){
-    this.setState({isDialogVisible: isShow});
+  showDialog(isShow) {
+    this.setState({ isDialogVisible: isShow });
   }
 
   handleSubmit(e) {
@@ -56,9 +56,9 @@ export default class ThirdPartyBOCAccountScreen extends Component {
         alert('Error : ' + err)
       });
   }
-  
+
   render() {
-    const {navigate} = this.props.navigation;
+    const { navigate } = this.props.navigation;
 
     const showSuccessAlert = () => {
       this.setState({ showSuccess: true })
@@ -70,6 +70,7 @@ export default class ThirdPartyBOCAccountScreen extends Component {
     const showAbortAlert = () => {
       this.setState({ showAbort: true })
     }
+    
     const closeAbortAlert = () => {
       this.setState({ showAbort: false })
     }
@@ -137,7 +138,7 @@ export default class ThirdPartyBOCAccountScreen extends Component {
 }
 
 ThirdPartyBOCAccountScreen.navigationOptions = {
-  header : null,
+  header: null,
 };
 
 

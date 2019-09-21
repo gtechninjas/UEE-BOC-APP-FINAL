@@ -53,7 +53,7 @@ class Message extends Component {
       alert(item)
    }
    render() {
-
+      const { navigate } = this.props.navigation;
       var BContent =<View></View>;
       
       return (
@@ -78,7 +78,8 @@ class Message extends Component {
             }
 
             <Modal isOpen={this.state.isOpen} onClosed={() => this.setState({isOpen: false})} style={[styles.modal, styles.modal4]} position={"center"} backdropContent={BContent}>
-            <Button onPress={() => this.setState({isOpen: false})} style={[styles.btn, styles.btnModal]}>X</Button>
+            <Button onPress={() => this.setState({isOpen: false})}>X</Button>
+            <Button onPress={() => navigate('MyAccount')} >View My Account</Button>
             </Modal>
 
          </View>
@@ -89,6 +90,21 @@ class Message extends Component {
 export default withNavigation(Message)
 
 const styles = StyleSheet.create ({
+   btn: {
+      margin: 10,
+      backgroundColor: "#3B5998",
+      color: "white",
+      padding: 10
+    },
+  
+    btnModal: {
+      position: "absolute",
+      top: 0,
+      right: 0,
+      width: 50,
+      height: 50,
+      backgroundColor: "transparent"
+    },
    modal4: {
       height: 300,
       backgroundColor: '#F1C40F',

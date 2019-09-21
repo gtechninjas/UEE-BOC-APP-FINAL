@@ -46,7 +46,6 @@ export default class DashboardScreen extends Component {
         <MaterialButtonGrey3 style={styles.materialButtonGrey3} />
         <Text style={styles.text5}>LKR 50,000.00</Text>
         <Text style={styles.text6}>LKR 0.00</Text>
-        <View style={styles.rect4} />
         <MaterialButtonDark20 style={styles.materialButtonDark20}  />
         {/* <MaterialButtonDark21 style={styles.materialButtonDark21} onPress = { () => navigate('ThirdPartyTransfer')}/> */}
         <View style={styles.materialButtonDark21}>
@@ -65,22 +64,11 @@ export default class DashboardScreen extends Component {
             <Text style={styles.acaption}>Own Account Transfer</Text>
             </TouchableOpacity>
         </View>
-        <Image
-          source={require("../assets/images/img_289761.png")}
-          resizeMode={"contain"}
-          style={styles.image2}
-        />
-        <Image
-          source={require("../assets/images/512px-Calendar_font_awesome.svg.png")}
-          resizeMode={"contain"}
-          style={styles.image3}
-          onPress = { () => navigate('Reminder')}
-        />
-        <Image
-          source={require("../assets/images/51-512.png")}
-          resizeMode={"contain"}
-          style={styles.image4}
-        />
+        <View style={styles.materialButtonDark24}>
+            <TouchableOpacity style={[styles.aroot, this.props.style]} onPress = { () => navigate('AlertHome')}>
+            <Text style={styles.acaption}>Alerts</Text>
+            </TouchableOpacity>
+        </View>
       </View>
     );
   }
@@ -228,30 +216,37 @@ const styles = StyleSheet.create({
     position: "absolute"
   },
   materialButtonDark20: {
-    top: 450,
+    top: 340,
     left: 34,
     width: 138,
     height: 54,
     position: "absolute"
   },
   materialButtonDark21: {
-    top: 550,
+    top: 420,
     left: 34,
     width: 138,
     height: 54,
     position: "absolute"
   },
   materialButtonDark22: {
-    top: 450,
+    top: 340,
     left: 199.19,
     width: 138,
     height: 53.47,
     position: "absolute"
   },
   materialButtonDark23: {
-    top: 550,
+    top: 420,
     left: 199.19,
     width: 138,
+    height: 54,
+    position: "absolute"
+  },
+  materialButtonDark24: {
+    top: 514,
+    left: 70.19,
+    width: 200,
     height: 54,
     position: "absolute"
   },

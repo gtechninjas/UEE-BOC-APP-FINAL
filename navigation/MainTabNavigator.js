@@ -19,6 +19,17 @@ import BudgetCalculatorScreen from '../screens/BudgetCalculator';
 import AddexpenseScreen from '../screens/AddExpense';
 import PayBillsScreen from '../screens/PayBills';
 import AddPayBillsScreen from '../screens/AddPayBills';
+//alert
+import AlertHomeScreen from '../screens/AlertHomeScreen';
+import AlertLinksScreen from '../screens/AlertLinksScreen';
+import AlertSettingsScreen from '../screens/AlertSettingsScreen';
+import ManageTaskScreen from '../screens/ManageTaskScreen';
+import AlertsScreen from '../screens/AlertsScreen';
+import TasksScreen from '../screens/TasksScreen';
+import UnSubAlertScreen from '../screens/UnSubAlertScreen';
+import UnSubTaskScreen from '../screens/UnSubTaskScreen';
+import CustomerAlertScreen from '../screens/CustomerAlertScreen';
+import AccountAlertScreen from '../screens/AccountAlertScreen';
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
@@ -306,6 +317,157 @@ OtherBankCreditCardStack.navigationOptions = {
 
 OtherBankCreditCardStack.path = '';
 
+//alert content
+
+const AlertHomeStack = createStackNavigator(
+  {
+    AlertHome: AlertHomeScreen,
+  },
+  config
+);
+
+AlertHomeStack.navigationOptions = {
+  // tabBarLabel: 'Home',
+  // tabBarIcon: ({ focused }) => (
+  //   <TabBarIcon
+  //     focused={focused}
+  //     name={
+  //       Platform.OS === 'ios'
+  //         ? `ios-information-circle${focused ? '' : '-outline'}`
+  //         : 'md-information-circle'
+  //     }
+  //   />
+  // ),
+  header: null,
+};
+
+AlertHomeStack.path = '';
+
+const AlertLinksStack = createStackNavigator(
+  {
+    Links: AlertLinksScreen,
+  },
+  config
+);
+
+AlertLinksStack.navigationOptions = {
+  // tabBarLabel: 'Links',
+  // tabBarIcon: ({ focused }) => (
+  //   <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'} />
+  // ),
+  header: null,
+};
+
+AlertLinksStack.path = '';
+
+const AlertSettingsStack = createStackNavigator(
+  {
+    Settings: AlertSettingsScreen,
+  },
+  config
+);
+
+AlertSettingsStack.navigationOptions = {
+  // tabBarLabel: 'Settings',
+  // tabBarIcon: ({ focused }) => (
+  //   <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
+  // ),
+  header: null,
+};
+
+AlertSettingsStack.path = '';
+
+const ManageTaskStack = createStackNavigator(
+   {
+     Task: ManageTaskScreen,
+   },
+   config
+ );
+
+ManageTaskStack.navigationOptions = {
+   header: null,
+ };
+
+ManageTaskStack.path = '';
+
+const AlertsStack = createStackNavigator(
+  {
+    Alerts: AlertsScreen,
+  },
+  config
+);
+
+AlertsStack.navigationOptions = {
+  header: null,
+};
+
+AlertsStack.path = '';
+
+const TasksStack = createStackNavigator(
+  {
+    Tasks: TasksScreen,
+  },
+  config
+);
+
+TasksStack.navigationOptions = {
+  header: null,
+};
+
+TasksStack.path = '';
+
+const UnStack = createStackNavigator(
+  {
+    Un: UnSubAlertScreen,
+  },
+  config
+);
+
+UnStack.navigationOptions = {
+  header: null,
+};
+
+UnStack.path = '';
+
+const UnTaskStack = createStackNavigator(
+  {
+    UnTasks: UnSubTaskScreen,
+  },
+  config
+);
+
+UnTaskStack.navigationOptions = {
+  header: null,
+};
+
+UnTaskStack.path = '';
+
+const CustomerStack = createStackNavigator(
+  {
+    customer: CustomerAlertScreen,
+  },
+  config
+);
+
+CustomerStack.navigationOptions = {
+  header: null,
+};
+
+CustomerStack.path = '';
+
+const AccountStack = createStackNavigator(
+  {
+    account: AccountAlertScreen,
+  },
+  config
+);
+
+AccountStack.navigationOptions = {
+  header: null,
+};
+
+AccountStack.path = '';
+
 const tabNavigator = createStackNavigator({
   HomeStack,
   LoginStack,
@@ -322,7 +484,17 @@ const tabNavigator = createStackNavigator({
   BudgetCalculatorStack,
   AddExpenseStack,
   PayBillsStack,
-  AddPayBillsStack
+  AddPayBillsStack,
+  AlertHomeStack,
+  AlertLinksStack,
+  AlertSettingsStack,
+  ManageTaskStack,
+  AlertsStack,
+  TasksStack,
+  UnStack,
+  UnTaskStack,
+  CustomerStack,
+  AccountStack,
 });
 
 tabNavigator.path = '';

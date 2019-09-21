@@ -6,7 +6,7 @@ import MaterialBasicTab from "../components/MaterialBasicTab";
 export default class MyAccountScreen extends Component {
   render() {
     return (
-      <View style={styles.root}>
+<View style={styles.root}>
         <View style={styles.rect} />
         <Image
           source={require("../assets/images/1200px-Bank_of_Ceylon.svg.png")}
@@ -14,12 +14,10 @@ export default class MyAccountScreen extends Component {
           style={styles.image}
         />
         <View style={styles.rect3} />
-        <Text style={styles.text2}>My Accounts</Text>
+        <Text style={styles.text2}>ADD EXPENSE</Text>
         
         <MaterialBasicTab style={styles.materialBasicTab} />
-        <Center horizontal>
-          <Text style={styles.text2}></Text>
-        </Center>
+        
         <Text style={styles.text3}>Current Balance</Text>
         <Text style={styles.text4}>Rs. 12, 000</Text>
       </View>
@@ -52,6 +50,14 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(250,164,51,1)",
     position: "absolute"
   },
+  rect3: {
+    top: 71.03,
+    left: 0,
+    width: 376.06,
+    height: 71.02,
+    backgroundColor: "rgba(228,221,134,1)",
+    position: "absolute"
+  },
   materialHeader2: {
     top: 111.97,
     left: 0,
@@ -66,10 +72,10 @@ const styles = StyleSheet.create({
     position: "absolute"
   },
   image: {
-    top: 26.28,
-    left: 134.39,
-    width: 104.24,
-    height: 92.5,
+    top: 15.42,
+    left: 87.63,
+    width: 200,
+    height: 41.81,
     position: "absolute"
   },
   text: {
@@ -94,12 +100,14 @@ const styles = StyleSheet.create({
     fontWeight: "bold"
   },
   text3: {
+    fontSize: 30,
     top: 337.2,
     left: 151.82,
     color: "#121212",
     position: "absolute"
   },
   text4: {
+    fontSize: 20,
     top: 363.2,
     left: 151.82,
     color: "#121212",

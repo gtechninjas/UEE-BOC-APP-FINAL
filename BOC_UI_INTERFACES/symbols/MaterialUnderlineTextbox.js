@@ -6,8 +6,8 @@ export default class MaterialUnderlineTextbox extends Component {
     return (
       <View style={[styles.root, this.props.style]}>
         <TextInput
-          placeholder={this.props.inputStyle || "Placeholder"}
-          editable={false}
+          placeholder={this.props.inputStyle || "Username"}
+          editable={true}
           style={styles.inputStyle}
         />
       </View>

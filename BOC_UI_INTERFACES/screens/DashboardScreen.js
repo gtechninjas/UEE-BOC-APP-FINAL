@@ -79,26 +79,6 @@ export default class DashboardScreen extends Component {
             <Text style={styles.acaption}>Message</Text>
             </TouchableOpacity>
         </View>
-        {/* <Image
-          source={require("../assets/images/img_289761.png")}
-          resizeMode={"contain"}
-          style={styles.image2}
-        />
-        <Image
-          source={require("../assets/images/512px-Calendar_font_awesome.svg.png")}
-          resizeMode={"contain"}
-          style={styles.image3}
-          onPress = { () => navigate('Reminder')}
-        />
-        <View style={styles.messageButton}>
-        <TouchableOpacity activeOpacity = {.5} style={[styles.aroot, this.props.style]} onPress={ () => navigate('Message') }>
-        <Image
-          source={require("../assets/images/51-512.png")}
-          resizeMode={"contain"}
-          style={styles.image4}
-        />
-        </TouchableOpacity>
-        </View> */}
       </View>
     );
   }
@@ -118,7 +98,8 @@ const styles = StyleSheet.create({
     width: 168.39,
     height: 59.86,
     backgroundColor: "rgba(250,164,51,1)",
-    position: "absolute"
+    position: "absolute",
+    borderRadius: 10
   },
   aroot: {
     flex: 1,
@@ -130,7 +111,7 @@ const styles = StyleSheet.create({
     paddingLeft: 16,
     elevation: 2,
     minWidth: 88,
-    borderRadius: 2,
+    borderRadius: 10,
     backgroundColor: "black",
     shadowOffset: {
       height: 1,
@@ -258,62 +239,71 @@ const styles = StyleSheet.create({
     left: 34,
     width: 138,
     height: 54,
-    position: "absolute"
+    position: "absolute",
+    borderRadius: 10
   },
   materialButtonDark21: {
     top: 450,
     left: 34,
     width: 138,
     height: 54,
-    position: "absolute"
+    position: "absolute",
+    borderRadius: 10
   },
   materialButtonDark22: {
     top: 350,
     left: 199.19,
     width: 138,
     height: 53.47,
-    position: "absolute"
+    position: "absolute",
+    borderRadius: 10
   },
   materialButtonDark23: {
     top: 450,
     left: 199.19,
     width: 138,
     height: 54,
-    position: "absolute"
+    position: "absolute",
+    borderRadius: 10
   },
   materialButtonDark24: {
     top: 550,
     left: 34,
     width: 138,
     height: 54,
-    position: "absolute"
+    position: "absolute",
+    borderRadius: 10
   },
   materialButtonDark25: {
     top: 550,
     left: 199.19,
     width: 138,
     height: 54,
-    position: "absolute"
+    position: "absolute",
+    borderRadius: 10
   },
   image2: {
     top: 340,
     left: -32,
     width: 182,
     height: 53.77,
-    position: "absolute"
+    position: "absolute",
+    borderRadius: 10
   },
   image3: {
     top: 340,
     left: 100.5,
     width: 174,
     height: 56.82,
-    position: "absolute"
+    position: "absolute",
+    borderRadius: 10
   },
   image4: {
     top: 340,
     left: 222.41,
     width: 168.39,
     height: 59.86,
-    position: "absolute"
+    position: "absolute",
+    borderRadius: 10
   }
 });

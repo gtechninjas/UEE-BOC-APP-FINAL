@@ -1,6 +1,6 @@
 import React from 'react';
 import { Platform } from 'react-native';
-import { createStackNavigator, createBottomTabNavigator, createAppContainer } from 'react-navigation';
+import { DrawerNavigator, createStackNavigator, createBottomTabNavigator, createAppContainer } from 'react-navigation';
 
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
@@ -21,6 +21,7 @@ import PayBillsScreen from '../screens/PayBills';
 import TransferFinalScreen from '../screens/TransferFinalScreen';
 import MessageScreen from '../screens/MessagesScreen';
 import MyAccounts from '../screens/MyAccounts';
+import MyAccount from '../screens/MyAccountScreen';
 import ComposeMessageScreen from '../screens/ComposeMesageScreen';
 import AddPayBillsScreen from '../screens/AddPayBills';
 import MessageBtn from '../symbols/MaterialButtonMessage';
@@ -94,9 +95,33 @@ MessageBtnStack.navigationOptions = {
 
 MessageBtnStack.path = '';
 
-const MyAccountStack = createStackNavigator(
+const MyAccountsStack = createStackNavigator(
   {
     MyAccounts: MyAccounts,
+  },
+  config
+);
+
+MyAccountsStack.navigationOptions = {
+  // tabBarLabel: 'Home',
+  // tabBarIcon: ({ focused }) => (
+  //   <TabBarIcon
+  //     focused={focused}
+  //     name={
+  //       Platform.OS === 'ios'
+  //         ? `ios-information-circle${focused ? '' : '-outline'}`
+  //         : 'md-information-circle'
+  //     }
+  //   />
+  // ),
+  header : null,
+};
+
+MyAccountsStack.path = '';
+
+const MyAccountStack = createStackNavigator(
+  {
+    MyAccount: MyAccount,
   },
   config
 );
@@ -443,6 +468,7 @@ const tabNavigator = createStackNavigator({
   TransferFinalStack,
   MessageStack,
   MyAccountStack,
+  MyAccountsStack,
   ComposeMessageStack,
   AddPayBillsStack,
   MessageBtnStack

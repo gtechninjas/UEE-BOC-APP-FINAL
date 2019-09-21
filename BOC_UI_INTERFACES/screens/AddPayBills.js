@@ -240,7 +240,7 @@ const styles = StyleSheet.create({
   },
   addBillBtnRoot: {
     flex: 1,
-    backgroundColor: "rgba(255,255,255,1)",
+    backgroundColor: "black",
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
@@ -249,7 +249,6 @@ const styles = StyleSheet.create({
     elevation: 2,
     minWidth: 88,
     borderRadius: 5,
-    borderColor: "#000000",
     borderWidth: 3,
     shadowOffset: {
       height: 1,
@@ -260,7 +259,7 @@ const styles = StyleSheet.create({
     shadowRadius: 5
   },
   addBillBtnCaption: {
-    color: "rgba(0,0,0,1)",
+    color: "white",
     fontSize: 14,
     fontFamily: "roboto-regular",
     fontWeight: "200"
@@ -363,7 +362,7 @@ const styles = StyleSheet.create({
   },
   cancelroot: {
     flex: 1,
-    backgroundColor: "rgba(255,255,255,1)",
+    backgroundColor: "black",
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
@@ -372,7 +371,6 @@ const styles = StyleSheet.create({
     elevation: 2,
     minWidth: 88,
     borderRadius: 5,
-    borderColor: "#000000",
     borderWidth: 3,
     shadowOffset: {
       height: 1,
@@ -383,7 +381,7 @@ const styles = StyleSheet.create({
     shadowRadius: 5
   },
   cancelcaption: {
-    color: "rgba(0,0,0,1)",
+    color: "white",
     fontSize: 14,
     fontFamily: "roboto-regular",
     fontWeight: "200"

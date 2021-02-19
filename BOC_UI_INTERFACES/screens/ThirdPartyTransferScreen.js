@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
     paddingLeft: 16,
     elevation: 2,
     minWidth: 88,
-    borderRadius: 2,
+    borderRadius: 10,
     backgroundColor: "black",
     shadowOffset: {
       height: 1,
@@ -174,7 +174,8 @@ const styles = StyleSheet.create({
     width: 145.82,
     borderRadius: 15,
     height: 62,
-    position: "absolute"
+    position: "absolute",
+    borderRadius: 10
   },
   materialButtonDark27: {
     top: 410,
@@ -182,6 +183,7 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     width: 148.5,
     height: 62,
-    position: "absolute"
+    position: "absolute",
+    borderRadius: 10
   }
 });

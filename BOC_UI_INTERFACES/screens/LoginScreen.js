@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
     left: "7.2%",
     width: 321.26,
     height: 43,
-    backgroundColor: "rgba(240,218,160,1)",
+    backgroundColor: "#000",
     position: "absolute",
     borderRadius: 10
   },
@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
     left: "7.2%",
     width: 321.26,
     height: 43,
-    backgroundColor: "rgba(240,218,160,1)",
+    backgroundColor: "#000",
     position: "absolute",
     borderRadius: 10
   },
@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
     height: 44.07,
     backgroundColor: "rgba(250,164,51,1)",
     position: "absolute",
-    borderRadius: 7
+    borderRadius: 10
   },
   aroot: {
     flex: 1,
@@ -140,7 +140,7 @@ const styles = StyleSheet.create({
     height: 44.07,
     backgroundColor: "rgba(250,164,51,1)",
     position: "absolute",
-    borderRadius: 7
+    borderRadius: 10
   },
   materialButtonDark9: {
     top: 360,

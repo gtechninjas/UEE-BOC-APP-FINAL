@@ -5,7 +5,7 @@ export default class MaterialButtonDark24 extends Component {
   render() {
     return (
       <TouchableOpacity style={[styles.root, this.props.style]}>
-        <Text style={styles.caption}>BUTTON</Text>
+        <Text style={styles.caption}>Cancel</Text>
       </TouchableOpacity>
     );
   }

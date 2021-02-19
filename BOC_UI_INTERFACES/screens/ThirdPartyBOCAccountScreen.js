@@ -11,22 +11,54 @@ import { Dropdown } from 'react-native-material-dropdown';
 import {
   SCLAlert,
   SCLAlertButton
+
 } from 'react-native-scl-alert';
+import * as myConstClass from '../utility/constant';
+import axios from 'axios';
 
 export default class ThirdPartyBOCAccountScreen extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       isDialogVisible: false,
+      name: 'suren vithanage',
+      nickName: 'suren',
+      accountNumber: '0721313123213',
+      email: 'suren@gmail.com',
       showSuccess: false, showAbort: false
+
     }
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
-  showDialog(isShow){
-    this.setState({isDialogVisible: isShow});
+
+  handleInputChange(e) {
+    this.setState({
+      [e.target.name]: e.target.value
+    })
   }
-  
+
+  showDialog(isShow) {
+    this.setState({ isDialogVisible: isShow });
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    const beneficiary = {
+      name: this.state.name,
+      nickName: this.state.nickName,
+      accountNumber: this.state.accountNumber,
+      address: this.state.address,
+      email: this.state.email
+    }
+    axios.post(`${myConstClass.PUBLIC_URL}/beneficiary`, beneficiary)
+      .then(res => alert('Successfully Created  : ' + res))
+      .catch(err => {
+        alert('Error : ' + err)
+      });
+  }
+
   render() {
-    const {navigate} = this.props.navigation;
+    const { navigate } = this.props.navigation;
 
     const showSuccessAlert = () => {
       this.setState({ showSuccess: true })
@@ -38,6 +70,7 @@ export default class ThirdPartyBOCAccountScreen extends Component {
     const showAbortAlert = () => {
       this.setState({ showAbort: true })
     }
+    
     const closeAbortAlert = () => {
       this.setState({ showAbort: false })
     }
@@ -105,7 +138,7 @@ export default class ThirdPartyBOCAccountScreen extends Component {
 }
 
 ThirdPartyBOCAccountScreen.navigationOptions = {
-  header : null,
+  header: null,
 };
 
 
@@ -124,7 +157,7 @@ const styles = StyleSheet.create({
     paddingLeft: 16,
     elevation: 2,
     minWidth: 88,
-    borderRadius: 2,
+    borderRadius: 10,
     shadowOffset: {
       height: 1,
       width: 0

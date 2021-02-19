@@ -41,122 +41,137 @@ export default class ReminderScreen extends Component {
   }
 }
 
+ReminderScreen.navigationOptions = {
+  header : null,
+};
+
 const styles = StyleSheet.create({
   root: {
     flex: 1,
     backgroundColor: "white"
   },
-  rect3: {
-    top: 72.64,
-    left: 0,
-    width: 390,
-    height: 92,
-    backgroundColor: "rgba(24,24,24,1)",
-    position: "absolute"
-  },
   rect: {
     top: 0,
-    left: 7.5,
+    left: 0,
     width: 375,
-    height: 72.64,
+    height: 78,
     backgroundColor: "rgba(250,164,51,1)",
     position: "absolute"
   },
   image: {
-    top: 6.51,
-    left: 7.5,
+    top: 18,
+    left: 3.5,
     width: 78,
     height: 29.81,
     position: "absolute"
   },
   rect2: {
-    top: 670.53,
-    left: 7.37,
+    top: 570,
+    left: 0,
     width: 375.26,
     height: 78.44,
     backgroundColor: "rgba(250,164,51,1)",
     position: "absolute"
   },
   textInput: {
-    top: 695.75,
-    left: 14.25,
+    top: 578,
+    left: 1,
     width: 356.44,
     height: 42,
     color: "#121212",
     position: "absolute"
   },
   text2: {
-    top: 36.32,
-    left: 16.81,
+    top: 50,
+    fontSize: 10,
+    left: 12.81,
     color: "rgba(255,255,255,1)",
     position: "absolute"
   },
   text3: {
-    top: 58.64,
-    left: 16.81,
+    top: 60,
+    fontSize: 10,
+    left: 12.81,
     color: "rgba(255,255,255,1)",
     position: "absolute"
   },
   text4: {
-    top: 12.41,
-    left: 149.18,
+    top: 23,
+    left: 145.18,
     color: "#121212",
     position: "absolute",
     fontSize: 18,
     fontWeight: "bold"
   },
+  rect3: {
+    top: 77,
+    left: 0,
+    width: 382,
+    height: 78.44,
+    backgroundColor: "rgba(24,24,24,1)",
+    position: "absolute"
+  },
+  materialButtonTransparentHamburger: {
+    top: 97.64,
+    left: 310.1,
+    width: 52,
+    height: 46,
+    position: "absolute"
+  },
   materialUnderlineTextbox7: {
-    top: 200.17,
-    left: "3.85%",
-    width: 360,
+    top:  180,
+    left: 2,
+    width: 355,
     height: 43,
     backgroundColor: "rgba(24,24,24,1)",
     position: "absolute"
   },
   materialUnderlineTextbox8: {
-    top: 269.35,
-    left: 15,
-    width: 360,
+    top: 240,
+    left: 2,
+    width: 355,
     height: 43,
     backgroundColor: "rgba(24,24,24,1)",
     position: "absolute"
   },
   materialUnderlineTextbox9: {
-    top: 333.17,
-    left: "3.85%",
-    width: 360,
+    top: 310,
+    left: 2,
+    width: 355,
     height: 43,
     backgroundColor: "rgba(24,24,24,1)",
     position: "absolute"
   },
   materialUnderlineTextbox10: {
-    top: 399.68,
-    left: "3.85%",
-    width: 360,
+    top: 370,
+    left: 2,
+    width: 355,
     height: 43,
     backgroundColor: "rgba(24,24,24,1)",
     position: "absolute"
   },
   materialUnderlineTextbox11: {
-    top: 469.94,
-    left: 15,
-    width: 360,
+    top: 440,
+    left: 2,
+    width: 355,
     height: 43,
     backgroundColor: "rgba(24,24,24,1)",
     position: "absolute"
   },
   materialButtonDark24: {
-    top: 545.38,
-    left: 35.5,
+    top: 490,
+    left: 20,
     width: 144,
     height: 58.79,
-    position: "absolute"
+    position: "absolute",
+    borderRadius: 10
   },
   materialButtonDark25: {
-    top: 545.38,
-    left: 209.5,
+    top: 490,
+    left: 195,
     width: 144,
     height: 58.79,
-    position: "absolute"
+    position: "absolute",
+    borderRadius: 10
   }
 });

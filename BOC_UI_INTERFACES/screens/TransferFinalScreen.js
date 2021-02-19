@@ -10,6 +10,7 @@ import MaterialButtonDark40 from "../symbols/MaterialButtonDark40";
 import MaterialUnderlineTextbox25 from "../symbols/MaterialUnderlineTextbox25";
 import MaterialUnderlineTextbox26 from "../symbols/MaterialUnderlineTextbox26";
 import { Dropdown } from 'react-native-material-dropdown';
+import axios from 'axios';
 import {
   SCLAlert,
   SCLAlertButton
@@ -135,7 +136,7 @@ const styles = StyleSheet.create({
     paddingLeft: 16,
     elevation: 2,
     minWidth: 88,
-    borderRadius: 2,
+    borderRadius: 10,
     shadowOffset: {
       height: 1,
       width: 0
@@ -275,16 +276,16 @@ const styles = StyleSheet.create({
   },
   materialUnderlineTextbox23: {
     top: 350,
-    left: 13.9,
-    width: 360,
+    left: 2,
+    width: 355,
     height: 43,
     backgroundColor: "rgba(24,24,24,1)",
     position: "absolute"
   },
   materialUnderlineTextbox24: {
     top: 400,
-    left: 13.9,
-    width: 360,
+    left: 2,
+    width: 355,
     height: 43,
     backgroundColor: "rgba(24,24,24,1)",
     position: "absolute"
@@ -323,16 +324,18 @@ const styles = StyleSheet.create({
   },
   materialUnderlineTextbox25: {
     top: 160,
-    left: 13.9,
-    width: 360,
+    left: 2,
+    width: 355,
     height: 43,
-    position: "absolute"
+    position: "absolute",
+    borderRadius: 5
   },
   materialUnderlineTextbox26: {
     top: 240,
-    left: 13.9,
-    width: 360,
+    left: 2,
+    width: 355,
     height: 43,
-    position: "absolute"
+    position: "absolute",
+    borderRadius: 5
   }
 });
